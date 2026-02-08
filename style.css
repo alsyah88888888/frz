@@ -151,7 +151,7 @@ body {
 }
 
 .hero {
-  height: 80vh;
+  height: 100vh;
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2000");
@@ -281,36 +281,51 @@ body {
   color: #ccc;
 }
 
-/* --- Style untuk Brand Carousel --- */
+/* --- Style untuk Brand Carousel (Fixed) --- */
 .brand-section {
-  padding: 100px 0;
+  padding: 80px 0;
   background-color: #ffffff;
+  overflow: hidden;
 }
 
 .brand-title {
   text-align: center;
   margin-bottom: 40px;
   color: #333;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* KUNCI: Gunakan class yang sama dengan HTML (brandSwiper) */
+.brandSwiper {
+  width: 100%;
+  max-width: 1000px; /* Membatasi lebar agar logo merapat ke tengah */
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
 .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100px; /* Sesuaikan tinggi slide */
 }
 
 .swiper-slide img {
-  height: 100px; /* Ukuran tinggi seragam */
+  max-height: 100px; /* Ukuran logo seragam */
+  max-width: 180px;
   width: auto;
+  height: auto;
   object-fit: contain;
   filter: grayscale(100%);
   opacity: 0.6;
-  transition: 0.3s;
+  transition: all 0.4s ease;
 }
 
 .swiper-slide img:hover {
   filter: grayscale(0%);
   opacity: 1;
+  transform: scale(1.1);
 }
 
 /* ===== PAGE CONTENT ===== */
@@ -344,38 +359,83 @@ body {
   margin-bottom: 10px;
 }
 
-/* ===== OVERVIEW & CARDS ===== */
+/* ===== OVERVIEW & CARDS (UNIFORM STYLE) ===== */
 .overview {
   padding: 80px 10%;
   text-align: center;
+  background-color: #ffffff;
+  /* Pastikan font keluarga utama Anda di sini */
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-.strengths {
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 45px;
+  color: #222222;
+}
+
+.strengths-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
   margin-top: 40px;
 }
 
-.card {
+/* Semua kartu menggunakan style yang sama */
+.strength-card,
+.strength-card.highlight-card {
   padding: 40px 30px;
   background: #f9f9f9;
   border-radius: 15px;
   text-align: center;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  border: 1px solid #eeeeee;
   border-bottom: 4px solid transparent;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Menyamakan tinggi kartu */
 }
 
-.card i {
+/* Penyeragaman Warna Ikon */
+.card-icon i,
+.highlight-card .card-icon i {
   font-size: 2.5rem;
-  color: #004a99;
+  color: #004a99; /* Warna biru konsisten */
   margin-bottom: 20px;
 }
 
-.card:hover {
+/* Penyeragaman Font Judul */
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #222222;
+}
+
+/* Penyeragaman Font Deskripsi */
+.card-description,
+.highlight-text {
+  font-size: 1rem;
+  color: #555555;
+  line-height: 1.6;
+  font-weight: normal; /* Menghilangkan bold pada highlight-text */
+}
+
+/* Menghilangkan dekorasi khusus pada highlight-text agar sama dengan teks biasa */
+.highlight-text {
+  display: inline;
+  color: inherit;
+}
+
+/* Efek Hover Seragam */
+.strength-card:hover,
+.highlight-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
   border-bottom: 4px solid #004a99;
+  border-color: #eeeeee; /* Tetap menjaga border samping lembut */
 }
 
 /* ===== ABOUT SECTION ===== */

@@ -100,17 +100,131 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Swiper & Counter tetap seperti kode Anda...
+
   if (typeof Swiper !== "undefined") {
     new Swiper(".brandSwiper", {
       slidesPerView: 2,
-      spaceBetween: 30,
+      spaceBetween: 20, // Gap rapat untuk mobile
+      centeredSlides: true, // Berhenti di tengah
       loop: true,
-      autoplay: { delay: 2000 },
-      breakpoints: { 640: { slidesPerView: 3 }, 1024: { slidesPerView: 5 } },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 5, // Menampilkan 5 logo sekaligus agar gap mengecil
+          spaceBetween: 40, // Jarak antar logo di desktop
+          centeredSlides: false, // Matikan centered di desktop jika jumlah logo pas dengan view
+        },
+      },
     });
   }
+
+  // Panggil fungsi counter
   initCounters();
-});
+}); // <--- PENUTUP DOMContentLoaded (Pastikan ini ada!)
+
+// --- CORE FUNCTIONS (DILUAR DOMCONTENTLOADED) ---
+
+function renderProducts() {
+  const container = document.getElementById("product-display");
+  const loadMoreBtn = document.getElementById("load-more-btn");
+  if (!container) return;
+
+  const toShow = currentFilteredProducts.slice(0, displayedCount);
+  container.innerHTML = toShow
+    .map(
+      (p) => `
+    <div class="product-list-item">
+      <div class="item-img"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
+      <div class="item-info">
+        <span class="cat-label">${p.category}</span>
+        <h4>${p.name}</h4>
+        <a href="${p.detailsLink || "#"}" class="btn-details">See Details <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  `,
+    )
+    .join("");
+
+  const counterElement = document.getElementById("product-counter");
+  if (counterElement) {
+    counterElement.innerText = `Showing ${toShow.length} of ${currentFilteredProducts.length} results`;
+  }
+
+  if (loadMoreBtn) {
+    loadMoreBtn.style.display =
+      displayedCount >= currentFilteredProducts.length
+        ? "none"
+        : "inline-block";
+  }
+}
+
+function loadComponent(id, file, callback) {
+  const el = document.getElementById(id);
+  if (el) {
+    fetch(file)
+      .then((res) => res.text())
+      .then((data) => {
+        el.innerHTML = data;
+        if (callback) callback();
+      });
+  }
+}
+
+function initMobileMenu() {
+  const menuToggle = document.getElementById("mobile-menu");
+  const navLinks = document.querySelector(".nav-links");
+  if (menuToggle && navLinks) {
+    menuToggle.onclick = () => {
+      navLinks.classList.toggle("active");
+      const icon = menuToggle.querySelector("i");
+      if (icon) {
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-times");
+      }
+    };
+  }
+}
+
+function setActiveLink() {
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    if (link.getAttribute("href").toLowerCase() === currentPage.toLowerCase()) {
+      link.classList.add("active-link");
+    }
+  });
+}
+
+function initCounters() {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = +counter.getAttribute("data-target");
+          let count = 0;
+          const update = () => {
+            count += target / 100;
+            if (count < target) {
+              counter.innerText = Math.ceil(count);
+              setTimeout(update, 10);
+            } else counter.innerText = target;
+          };
+          update();
+          observer.unobserve(counter);
+        }
+      });
+    },
+    { threshold: 0.7 },
+  );
+  document.querySelectorAll(".counter").forEach((c) => observer.observe(c));
+}
 
 // --- CORE FUNCTIONS (Render & Helpers) ---
 function renderProducts() {
