@@ -923,11 +923,11 @@ body {
 
   .sidebar {
     max-width: 100%;
-    order: 2;
+    order: 1;
   }
 
   .product-listing {
-    order: 1;
+    order: 2;
   }
 
   .product-list-item {
