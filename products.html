@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fortune Reef Zona - Products</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+
+  <body>
+    <div id="main-navbar"></div>
+
+    <header class="hero-products-small">
+      <div class="hero-content">
+        <nav class="breadcrumb">Home › Products</nav>
+        <h1>Products</h1>
+      </div>
+    </header>
+
+    <main class="products-container">
+      <div class="container flex-layout">
+        <aside class="sidebar">
+          <div class="filter-group">
+            <h3>Search Product</h3>
+            <div class="search-box">
+              <input type="text" id="product-search" placeholder="Search..." />
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3>Filter by Category</h3>
+            <ul class="filter-list">
+              <li class="has-dropdown active">
+                <div class="category-header">
+                  <span
+                    ><input type="checkbox" class="parent-checkbox" />
+                    Food</span
+                  >
+                  <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <ul class="sub-filter-list">
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Sauce"
+                    />
+                    Sauce
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Biscuits & Cookies"
+                    />
+                    Biscuits & Cookies
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Cereal"
+                    />
+                    Cereal
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Snacks"
+                    />
+                    Snacks
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Others"
+                    />
+                    Others
+                  </li>
+                </ul>
+              </li>
+
+              <li class="has-dropdown">
+                <div class="category-header">
+                  <span
+                    ><input type="checkbox" class="parent-checkbox" />
+                    Beverages</span
+                  >
+                  <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <ul class="sub-filter-list">
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Coffee"
+                    />
+                    Coffee
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Juices"
+                    />
+                    Juices
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Milk"
+                    />
+                    Milk
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Energy Drinks"
+                    />
+                    Energy Drinks
+                  </li>
+                </ul>
+              </li>
+
+              <li class="has-dropdown">
+                <div class="category-header">
+                  <span
+                    ><input type="checkbox" class="parent-checkbox" /> Baby
+                    Care</span
+                  >
+                  <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <ul class="sub-filter-list">
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Baby Barsoap"
+                    />
+                    Baby Barsoap
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Baby Bodywash"
+                    />
+                    Baby Bodywash
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Baby Cologne"
+                    />
+                    Baby Cologne
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Baby Cream"
+                    />
+                    Baby Cream
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="category-checkbox"
+                      value="Baby Diapers"
+                    />
+                    Baby Diapers
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+        <section class="product-listing">
+          <div class="listing-header">
+            <span id="product-counter">Loading products...</span>
+            <div class="view-options">
+              <i class="fas fa-th"></i>
+              <i class="fas fa-list active"></i>
+            </div>
+          </div>
+
+          <div class="list-container" id="product-display"></div>
+
+          <div
+            id="load-more-container"
+            style="text-align: center; margin-top: 30px"
+          >
+            <button
+              id="load-more-btn"
+              class="btn-details"
+              style="cursor: pointer; padding: 12px 25px; display: none"
+            >
+              Load More Products
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer id="main-footer" class="main-footer"></footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

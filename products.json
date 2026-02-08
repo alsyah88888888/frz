@@ -1,0 +1,702 @@
+[
+  {
+    "id": 1,
+    "name": "ABC Chili Sauce",
+    "category": "Sauce",
+    "image": "image/products/abc-chili.png",
+    "detailsLink": "product-1.html"
+  },
+  {
+    "id": 2,
+    "name": "ABC Sweet Soy",
+    "category": "Others",
+    "image": "image/products/abc-soy.png",
+    "detailsLink": "product-2.html"
+  },
+  {
+    "id": 3,
+    "name": "ABC Tomato Ketchup",
+    "category": "Sauce",
+    "image": "image/products/abc-tomato.png",
+    "detailsLink": "product-3.html"
+  },
+  {
+    "id": 4,
+    "name": "Baby Barsoap Soft",
+    "category": "Baby Barsoap",
+    "image": "image/products/baby-soap.png",
+    "detailsLink": "product-4.html"
+  },
+  {
+    "id": 5,
+    "name": "Baby Bodywash Aloe",
+    "category": "Baby Bodywash",
+    "image": "image/products/baby-wash.png",
+    "detailsLink": "product-5.html"
+  },
+  {
+    "id": 6,
+    "name": "Coffee Arabica Gold",
+    "category": "Coffee",
+    "image": "image/products/coffee.png",
+    "detailsLink": "product-6.html"
+  },
+  {
+    "id": 7,
+    "name": "Energy Drink Blue",
+    "category": "Energy Drinks",
+    "image": "image/products/energy.png",
+    "detailsLink": "product-7.html"
+  },
+  {
+    "id": 8,
+    "name": "Orange Juice 1L",
+    "category": "Juices",
+    "image": "image/products/juice.png",
+    "detailsLink": "product-8.html"
+  },
+  {
+    "id": 9,
+    "name": "Full Cream Milk",
+    "category": "Milk",
+    "image": "image/products/milk.png",
+    "detailsLink": "product-9.html"
+  },
+  {
+    "id": 10,
+    "name": "Choco Biscuits",
+    "category": "Biscuits & Cookies",
+    "image": "image/products/biscuits.png",
+    "detailsLink": "product-10.html"
+  },
+  {
+    "id": 11,
+    "name": "Corn Flakes Cereal",
+    "category": "Cereal",
+    "image": "image/products/cereal.png",
+    "detailsLink": "product-11.html"
+  },
+  {
+    "id": 12,
+    "name": "Potato Chips Spicy",
+    "category": "Snacks",
+    "image": "image/products/snacks.png",
+    "detailsLink": "product-12.html"
+  },
+  {
+    "id": 13,
+    "name": "Baby Cologne Mist",
+    "category": "Baby Cologne",
+    "image": "image/products/baby-cologne.png",
+    "detailsLink": "product-13.html"
+  },
+  {
+    "id": 14,
+    "name": "Baby Cream Soft",
+    "category": "Baby Cream",
+    "image": "image/products/baby-cream.png",
+    "detailsLink": "product-14.html"
+  },
+  {
+    "id": 15,
+    "name": "Baby Diapers L",
+    "category": "Baby Diapers",
+    "image": "image/products/baby-diapers.png",
+    "detailsLink": "product-15.html"
+  },
+  {
+    "id": 16,
+    "name": "Hot Chili Extra",
+    "category": "Sauce",
+    "image": "image/products/hot-chili.png",
+    "detailsLink": "product-16.html"
+  },
+  {
+    "id": 17,
+    "name": "Instant Coffee Mix",
+    "category": "Coffee",
+    "image": "image/products/coffee-mix.png",
+    "detailsLink": "product-17.html"
+  },
+  {
+    "id": 18,
+    "name": "Apple Juice Fresh",
+    "category": "Juices",
+    "image": "image/products/apple-juice.png",
+    "detailsLink": "product-18.html"
+  },
+  {
+    "id": 19,
+    "name": "Strawberry Milk",
+    "category": "Milk",
+    "image": "image/products/strawberry-milk.png",
+    "detailsLink": "product-19.html"
+  },
+  {
+    "id": 20,
+    "name": "Oatmeal Cereal",
+    "category": "Cereal",
+    "image": "image/products/oatmeal.png",
+    "detailsLink": "product-20.html"
+  },
+  {
+    "id": 21,
+    "name": "Cheese Crackers",
+    "category": "Biscuits & Cookies",
+    "image": "image/products/cheese-crackers.png",
+    "detailsLink": "product-21.html"
+  },
+  {
+    "id": 22,
+    "name": "Cassava Chips",
+    "category": "Snacks",
+    "image": "image/products/cassava.png",
+    "detailsLink": "product-22.html"
+  },
+  {
+    "id": 23,
+    "name": "Baby Soap Lavender",
+    "category": "Baby Barsoap",
+    "image": "image/products/baby-soap-lav.png",
+    "detailsLink": "product-23.html"
+  },
+  {
+    "id": 24,
+    "name": "Isotonic Water",
+    "category": "Energy Drinks",
+    "image": "image/products/isotonic.png",
+    "detailsLink": "product-24.html"
+  },
+  {
+    "id": 25,
+    "name": "Soy Milk Vanilla",
+    "category": "Milk",
+    "image": "image/products/soy-milk.png",
+    "detailsLink": "product-25.html"
+  },
+  {
+    "id": 26,
+    "name": "Butter Cookies",
+    "category": "Biscuits & Cookies",
+    "image": "image/products/butter-cookies.png",
+    "detailsLink": "product-26.html"
+  },
+  {
+    "id": 27,
+    "name": "Spicy Mayo Sauce",
+    "category": "Sauce",
+    "image": "image/products/spicy-mayo.png",
+    "detailsLink": "product-27.html"
+  },
+  {
+    "id": 28,
+    "name": "Chocolate Cereal",
+    "category": "Cereal",
+    "image": "image/products/choco-cereal.png",
+    "detailsLink": "product-28.html"
+  },
+  {
+    "id": 29,
+    "name": "Mixed Nut Snack",
+    "category": "Snacks",
+    "image": "image/products/nuts.png",
+    "detailsLink": "product-29.html"
+  },
+  {
+    "id": 30,
+    "name": "Baby Lotion",
+    "category": "Baby Cream",
+    "image": "image/products/baby-lotion.png",
+    "detailsLink": "product-30.html"
+  },
+  {
+    "id": 31,
+    "name": "Baby Cologne Floral",
+    "category": "Baby Cologne",
+    "image": "image/products/baby-floral.png",
+    "detailsLink": "product-31.html"
+  },
+  {
+    "id": 32,
+    "name": "Black Coffee Roast",
+    "category": "Coffee",
+    "image": "image/products/black-coffee.png",
+    "detailsLink": "product-32.html"
+  },
+  {
+    "id": 33,
+    "name": "Mango Juice",
+    "category": "Juices",
+    "image": "image/products/mango-juice.png",
+    "detailsLink": "product-33.html"
+  },
+  {
+    "id": 34,
+    "name": "Almond Milk",
+    "category": "Milk",
+    "image": "image/products/almond-milk.png",
+    "detailsLink": "product-34.html"
+  },
+  {
+    "id": 35,
+    "name": "Wafer Chocolate",
+    "category": "Biscuits & Cookies",
+    "image": "image/products/wafer.png",
+    "detailsLink": "product-35.html"
+  },
+  {
+    "id": 36,
+    "name": "Honey Cereal",
+    "category": "Cereal",
+    "image": "image/products/honey-cereal.png",
+    "detailsLink": "product-36.html"
+  },
+  {
+    "id": 37,
+    "name": "Popcorn Caramel",
+    "category": "Snacks",
+    "image": "image/products/popcorn.png",
+    "detailsLink": "product-37.html"
+  },
+  {
+    "id": 38,
+    "name": "BBQ Sauce",
+    "category": "Sauce",
+    "image": "image/products/bbq-sauce.png",
+    "detailsLink": "product-38.html"
+  },
+  {
+    "id": 39,
+    "name": "Baby Wash Sensitive",
+    "category": "Baby Bodywash",
+    "image": "image/products/baby-wash-sen.png",
+    "detailsLink": "product-39.html"
+  },
+  {
+    "id": 40,
+    "name": "Baby Diapers M",
+    "category": "Baby Diapers",
+    "image": "image/products/baby-diapers-m.png",
+    "detailsLink": "product-40.html"
+  },
+  {
+    "id": 41,
+    "name": "Espresso Beans",
+    "category": "Coffee",
+    "image": "image/products/espresso.png",
+    "detailsLink": "product-41.html"
+  },
+  {
+    "id": 42,
+    "name": "Pineapple Juice",
+    "category": "Juices",
+    "image": "image/products/pineapple.png",
+    "detailsLink": "product-42.html"
+  },
+  {
+    "id": 43,
+    "name": "Low Fat Milk",
+    "category": "Milk",
+    "image": "image/products/low-fat.png",
+    "detailsLink": "product-43.html"
+  },
+  {
+    "id": 44,
+    "name": "Oat Biscuits",
+    "category": "Biscuits & Cookies",
+    "image": "image/products/oat-biscuits.png",
+    "detailsLink": "product-44.html"
+  },
+  {
+    "id": 45,
+    "name": "Corn Snack",
+    "category": "Snacks",
+    "image": "image/products/corn-snack.png",
+    "detailsLink": "product-45.html"
+  },
+  {
+    "id": 46,
+    "name": "Garlic Sauce",
+    "category": "Sauce",
+    "image": "image/products/garlic-sauce.png",
+    "detailsLink": "product-46.html"
+  },
+  {
+    "id": 47,
+    "name": "Baby Soap Chamomile",
+    "category": "Baby Barsoap",
+    "image": "image/products/baby-soap-cham.png",
+    "detailsLink": "product-47.html"
+  },
+  {
+    "id": 48,
+    "name": "Sports Drink Red",
+    "category": "Energy Drinks",
+    "image": "image/products/sports-red.png",
+    "detailsLink": "product-48.html"
+  },
+  {
+    "id": 49,
+    "name": "Chocolate Milk Drink",
+    "category": "Milk",
+    "image": "image/products/milk-choco.png",
+    "detailsLink": "product-49.html"
+  },
+  {
+    "id": 50,
+    "name": "Rice Cereal",
+    "category": "Cereal",
+    "image": "image/products/rice-cereal.png",
+    "detailsLink": "product-50.html"
+  },
+  {
+    "id": 51,
+    "name": "Shortbread Cookies",
+    "category": "Biscuits & Cookies",
+    "image": "image/products/shortbread.png",
+    "detailsLink": "product-51.html"
+  },
+  {
+    "id": 52,
+    "name": "Pretzels Salted",
+    "category": "Snacks",
+    "image": "image/products/pretzels.png",
+    "detailsLink": "product-52.html"
+  },
+  {
+    "id": 53,
+    "name": "Oyster Sauce",
+    "category": "Sauce",
+    "image": "image/products/oyster-sauce.png",
+    "detailsLink": "product-53.html"
+  },
+  {
+    "id": 54,
+    "name": "Baby Shampoo",
+    "category": "Baby Bodywash",
+    "image": "image/products/baby-shampoo.png",
+    "detailsLink": "product-54.html"
+  },
+  {
+    "id": 55,
+    "name": "Baby Cologne Fresh",
+    "category": "Baby Cologne",
+    "image": "image/products/baby-cologne-fr.png",
+    "detailsLink": "product-55.html"
+  },
+  {
+    "id": 56,
+    "name": "Cappuccino Mix",
+    "category": "Coffee",
+    "image": "image/products/cappuccino.png",
+    "detailsLink": "product-56.html"
+  },
+  {
+    "id": 57,
+    "name": "Guava Juice",
+    "category": "Juices",
+    "image": "image/products/guava.png",
+    "detailsLink": "product-57.html"
+  },
+  {
+    "id": 58,
+    "name": "UHT Milk Plane",
+    "category": "Milk",
+    "image": "image/products/uht-milk.png",
+    "detailsLink": "product-58.html"
+  },
+  {
+    "id": 59,
+    "name": "Ginger Biscuits",
+    "category": "Biscuits & Cookies",
+    "image": "image/products/ginger.png",
+    "detailsLink": "product-59.html"
+  },
+  {
+    "id": 60,
+    "name": "Muesli Cereal",
+    "category": "Cereal",
+    "image": "image/products/muesli.png",
+    "detailsLink": "product-60.html"
+  },
+  {
+    "id": 61,
+    "name": "Tortilla Chips",
+    "category": "Snacks",
+    "image": "image/products/tortilla.png",
+    "detailsLink": "product-61.html"
+  },
+  {
+    "id": 62,
+    "name": "Teriyaki Sauce",
+    "category": "Sauce",
+    "image": "image/products/teriyaki.png",
+    "detailsLink": "product-62.html"
+  },
+  {
+    "id": 63,
+    "name": "Baby Barsoap Milk",
+    "category": "Baby Barsoap",
+    "image": "image/products/baby-milk-soap.png",
+    "detailsLink": "product-63.html"
+  },
+  {
+    "id": 64,
+    "name": "Energy Gel",
+    "category": "Energy Drinks",
+    "image": "image/products/energy-gel.png",
+    "detailsLink": "product-64.html"
+  },
+  {
+    "id": 65,
+    "name": "Cashew Milk",
+    "category": "Milk",
+    "image": "image/products/cashew-milk.png",
+    "detailsLink": "product-65.html"
+  },
+  {
+    "id": 66,
+    "name": "Digestive Biscuits",
+    "category": "Biscuits & Cookies",
+    "image": "image/products/digestive.png",
+    "detailsLink": "product-66.html"
+  },
+  {
+    "id": 67,
+    "name": "Fruit Loops",
+    "category": "Cereal",
+    "image": "image/products/fruit-loops.png",
+    "detailsLink": "product-67.html"
+  },
+  {
+    "id": 68,
+    "name": "Extruded Snack",
+    "category": "Snacks",
+    "image": "image/products/extruded.png",
+    "detailsLink": "product-68.html"
+  },
+  {
+    "id": 69,
+    "name": "Sriracha Sauce",
+    "category": "Sauce",
+    "image": "image/products/sriracha.png",
+    "detailsLink": "product-69.html"
+  },
+  {
+    "id": 70,
+    "name": "Baby Powder",
+    "category": "Baby Cream",
+    "image": "image/products/baby-powder.png",
+    "detailsLink": "product-70.html"
+  },
+  {
+    "id": 71,
+    "name": "Baby Diapers S",
+    "category": "Baby Diapers",
+    "image": "image/products/baby-diapers-s.png",
+    "detailsLink": "product-71.html"
+  },
+  {
+    "id": 72,
+    "name": "Latte Instant",
+    "category": "Coffee",
+    "image": "image/products/latte.png",
+    "detailsLink": "product-72.html"
+  },
+  {
+    "id": 73,
+    "name": "Grape Juice",
+    "category": "Juices",
+    "image": "image/products/grape-juice.png",
+    "detailsLink": "product-73.html"
+  },
+  {
+    "id": 74,
+    "name": "Banana Milk",
+    "category": "Milk",
+    "image": "image/products/banana-milk.png",
+    "detailsLink": "product-74.html"
+  },
+  {
+    "id": 75,
+    "name": "Sandwich Cookies",
+    "category": "Biscuits & Cookies",
+    "image": "image/products/sandwich.png",
+    "detailsLink": "product-75.html"
+  },
+  {
+    "id": 76,
+    "name": "Bran Flakes",
+    "category": "Cereal",
+    "image": "image/products/bran-flakes.png",
+    "detailsLink": "product-76.html"
+  },
+  {
+    "id": 77,
+    "name": "Peanut Snack",
+    "category": "Snacks",
+    "image": "image/products/peanuts.png",
+    "detailsLink": "product-77.html"
+  },
+  {
+    "id": 78,
+    "name": "Fish Sauce",
+    "category": "Sauce",
+    "image": "image/products/fish-sauce.png",
+    "detailsLink": "product-78.html"
+  },
+  {
+    "id": 79,
+    "name": "Baby Oil",
+    "category": "Baby Cream",
+    "image": "image/products/baby-oil.png",
+    "detailsLink": "product-79.html"
+  },
+  {
+    "id": 80,
+    "name": "Vitamin Water",
+    "category": "Energy Drinks",
+    "image": "image/products/vitamin-water.png",
+    "detailsLink": "product-80.html"
+  },
+  {
+    "id": 81,
+    "name": "Condensed Milk",
+    "category": "Milk",
+    "image": "image/products/condensed.png",
+    "detailsLink": "product-81.html"
+  },
+  {
+    "id": 82,
+    "name": "Granola Bar",
+    "category": "Cereal",
+    "image": "image/products/granola.png",
+    "detailsLink": "product-82.html"
+  },
+  {
+    "id": 83,
+    "name": "Lemon Biscuits",
+    "category": "Biscuits & Cookies",
+    "image": "image/products/lemon-biscuits.png",
+    "detailsLink": "product-83.html"
+  },
+  {
+    "id": 84,
+    "name": "Seaweed Snack",
+    "category": "Snacks",
+    "image": "image/products/seaweed.png",
+    "detailsLink": "product-84.html"
+  },
+  {
+    "id": 85,
+    "name": "Black Pepper Sauce",
+    "category": "Sauce",
+    "image": "image/products/black-pepper.png",
+    "detailsLink": "product-85.html"
+  },
+  {
+    "id": 86,
+    "name": "Baby Cream Rash",
+    "category": "Baby Cream",
+    "image": "image/products/rash-cream.png",
+    "detailsLink": "product-86.html"
+  },
+  {
+    "id": 87,
+    "name": "Baby Cologne Musk",
+    "category": "Baby Cologne",
+    "image": "image/products/baby-musk.png",
+    "detailsLink": "product-87.html"
+  },
+  {
+    "id": 88,
+    "name": "Mocca Coffee",
+    "category": "Coffee",
+    "image": "image/products/mocca.png",
+    "detailsLink": "product-88.html"
+  },
+  {
+    "id": 89,
+    "name": "Lemonade 500ml",
+    "category": "Juices",
+    "image": "image/products/lemonade.png",
+    "detailsLink": "product-89.html"
+  },
+  {
+    "id": 90,
+    "name": "Evaporated Milk",
+    "category": "Milk",
+    "image": "image/products/evaporated.png",
+    "detailsLink": "product-90.html"
+  },
+  {
+    "id": 91,
+    "name": "Sugar Cookies",
+    "category": "Biscuits & Cookies",
+    "image": "image/products/sugar-cookies.png",
+    "detailsLink": "product-91.html"
+  },
+  {
+    "id": 92,
+    "name": "Puffed Rice",
+    "category": "Cereal",
+    "image": "image/products/puffed-rice.png",
+    "detailsLink": "product-92.html"
+  },
+  {
+    "id": 93,
+    "name": "Fruit Snack",
+    "category": "Snacks",
+    "image": "image/products/fruit-snack.png",
+    "detailsLink": "product-93.html"
+  },
+  {
+    "id": 94,
+    "name": "Hoisin Sauce",
+    "category": "Sauce",
+    "image": "image/products/hoisin.png",
+    "detailsLink": "product-94.html"
+  },
+  {
+    "id": 95,
+    "name": "Baby Barsoap Aloe",
+    "category": "Baby Barsoap",
+    "image": "image/products/aloe-soap.png",
+    "detailsLink": "product-95.html"
+  },
+  {
+    "id": 96,
+    "name": "Caffeine Booster",
+    "category": "Energy Drinks",
+    "image": "image/products/booster.png",
+    "detailsLink": "product-96.html"
+  },
+  {
+    "id": 97,
+    "name": "Walnut Milk",
+    "category": "Milk",
+    "image": "image/products/walnut-milk.png",
+    "detailsLink": "product-97.html"
+  },
+  {
+    "id": 98,
+    "name": "Coconut Biscuits",
+    "category": "Biscuits & Cookies",
+    "image": "image/products/coconut-biscuits.png",
+    "detailsLink": "product-98.html"
+  },
+  {
+    "id": 99,
+    "name": "Wheat Cereal",
+    "category": "Cereal",
+    "image": "image/products/wheat.png",
+    "detailsLink": "product-99.html"
+  },
+  {
+    "id": 100,
+    "name": "Banana Chips",
+    "category": "Snacks",
+    "image": "image/products/banana-chips.png",
+    "detailsLink": "product-100.html"
+  }
+]
