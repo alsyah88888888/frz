@@ -176,6 +176,25 @@ function renderProducts() {
   if (!container) return;
 
   const toShow = currentFilteredProducts.slice(0, displayedCount);
+  
+  if (toShow.length === 0) {
+    container.style.display = "block";
+    container.innerHTML = `
+      <div style="text-align: center; padding: 50px; color: #718096;">
+        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.2;"></i>
+        <p style="font-size: 1.2rem; font-weight: 600;">No products found</p>
+        <p>Try adjusting your search or filters</p>
+      </div>
+    `;
+    if (loadMoreBtn) loadMoreBtn.style.display = "none";
+    return;
+  }
+
+  // Preserve layout mode
+  const isListMode = document.querySelector(".fa-list").classList.contains("active");
+  container.className = isListMode ? "list-container list-mode" : "list-container";
+  container.style.display = isListMode ? "flex" : "grid";
+
   container.innerHTML = toShow
     .map(
       (p) => `
@@ -184,7 +203,9 @@ function renderProducts() {
       <div class="item-info">
         <span class="cat-label">${p.category}</span>
         <h4>${p.name}</h4>
-        <a href="${p.detailsLink || "#"}" class="btn-details">See Details <i class="fas fa-arrow-right"></i></a>
+        <a href="${p.detailsLink || "#"}" class="btn-details">
+          See Details <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
     </div>
   `,
@@ -203,6 +224,31 @@ function renderProducts() {
         : "inline-block";
   }
 }
+
+// --- 7. VIEW TOGGLE LOGIC ---
+document.addEventListener("click", function (e) {
+  const gridBtn = e.target.closest(".fa-th");
+  const listBtn = e.target.closest(".fa-list");
+
+  if (gridBtn || listBtn) {
+    const listIcon = document.querySelector(".fa-list");
+    const gridIcon = document.querySelector(".fa-th");
+    const container = document.getElementById("product-display");
+
+    if (gridBtn) {
+      gridIcon.classList.add("active");
+      listIcon.classList.remove("active");
+      container.classList.remove("list-mode");
+      container.style.display = "grid";
+    } else {
+      listIcon.classList.add("active");
+      gridIcon.classList.remove("active");
+      container.classList.add("list-mode");
+      container.style.display = "flex";
+    }
+    renderProducts();
+  }
+});
 
 function loadComponent(id, file, callback) {
   const el = document.getElementById(id);
