@@ -1,164 +1,146 @@
 [
   {
     "id": 1,
-    "name": "ABC Chili Sauce",
-    "category": "Sauce",
-    "image": "image/products/abc-chili.png"
+    "name": "Kit Kat Chocolate Drink Can",
+    "category": "Beverages",
+    "image": "image/products/1. KIT KAT CHOCOLATE DRINK CAN 24 X 220ML.jpg"
   },
   {
     "id": 2,
-    "name": "ABC Sweet Soy",
-    "category": "Others",
-    "image": "image/products/abc-soy.png"
+    "name": "Oreo Roll Vanilla",
+    "category": "Snacks",
+    "image": "image/products/2. OREO ROLL VANILA 110,4 GR.jpg"
   },
   {
     "id": 3,
-    "name": "ABC Tomato Ketchup",
-    "category": "Sauce",
-    "image": "image/products/abc-tomato.png"
+    "name": "Sunlight Dishwash",
+    "category": "Home Care",
+    "image": "image/products/3. SUNLIGHT 610GR.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Sirup Marjan Coco Pandan",
+    "category": "Beverages",
+    "image": "image/products/4. SIRUP MARJAN COCO PANDAN 460ML.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Nescafe Kit Kat RTD Latte",
+    "category": "Beverages",
+    "image": "image/products/5. NESCAFE KIT KAT RTD LATTE 24x220ML.jpg"
   },
   {
     "id": 6,
-    "name": "Coffee Arabica Gold",
-    "category": "Coffee",
-    "image": "image/products/coffee.png"
+    "name": "Medicare Bar Soap Light Blue",
+    "category": "Personal Care",
+    "image": "image/products/6. MEDICARE BAR SOAP LIGHT BLUE 80GR KIT KAT RTD LATTE 24x220ML.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Oatside Oat Milk Barista Blend",
+    "category": "Beverages",
+    "image": "image/products/7. OATSIDE OAT MILK BARISTA BLEND 6x1000ML.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Oatside Barista",
+    "category": "Beverages",
+    "image": "image/products/8. OATSIDE BARISTA 6 x 1000ML.jpg"
   },
   {
     "id": 9,
-    "name": "Full Cream Milk",
-    "category": "Milk",
-    "image": "image/products/milk.png"
+    "name": "Oatside Barista (Alternative)",
+    "category": "Beverages",
+    "image": "image/products/9. OATSIDE BARISTA 6 x 1000ML.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Oreo Roll Original",
+    "category": "Snacks",
+    "image": "image/products/10. OREO ROLL ORIGINAL 119,6GR.jpg"
+  },
+  {
+    "id": 11,
+    "name": "So Good Vanilla Soy",
+    "category": "Beverages",
+    "image": "image/products/11. SO GOOD VANILLA SOY SMOOTH & CREAMY.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Original Chilli Sauce",
+    "category": "Sauce",
+    "image": "image/products/12. ORIGINAL CHILLI SAUCE.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Original Tomato Sauce",
+    "category": "Sauce",
+    "image": "image/products/12. ORIGINAL TOMATO SAUCE.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Original Sweet Soy",
+    "category": "Sauce",
+    "image": "image/products/14. ORIGINAL SWEET SOY.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Banana Chips",
+    "category": "Snacks",
+    "image": "image/products/15. BANANA CHIPS.jpg"
   },
   {
     "id": 16,
-    "name": "Hot Chili Extra",
-    "category": "Sauce",
-    "image": "image/products/hot-chili.png"
+    "name": "Almond Milk",
+    "category": "Beverages",
+    "image": "image/products/16. ALMOND MILLK.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Tao Kae Noi Seaweed",
+    "category": "Snacks",
+    "image": "image/products/17. TAE KAE NOI.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Excelso Classic",
+    "category": "Coffee",
+    "image": "image/products/18. EXCELSO CLASSIC.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Excelso Arabica Gold",
+    "category": "Coffee",
+    "image": "image/products/19. EXCELSO ARABICA GOLD.jpg"
   },
   {
     "id": 20,
-    "name": "Oatmeal Cereal",
-    "category": "Cereal",
-    "image": "image/products/oatmeal.png"
+    "name": "GIV White Skin Care Body Wash",
+    "category": "Personal Care",
+    "image": "image/products/20. GIV WHITE SKIN CARE BODY WASH.jpg"
+  },
+  {
+    "id": 21,
+    "name": "My Baby Hair & Body Wash",
+    "category": "Baby Care",
+    "image": "image/products/21. MY BABY HAIR & BODY WASH.jpg"
   },
   {
     "id": 22,
-    "name": "Cassava Chips",
-    "category": "Snacks",
-    "image": "image/products/cassava.png"
+    "name": "Sriracha Sauce",
+    "category": "Sauce",
+    "image": "image/products/22. Sriracha Sauce.jpg"
   },
   {
     "id": 23,
-    "name": "Baby Soap Lavender",
-    "category": "Baby Barsoap",
-    "image": "image/products/baby-soap-lav.png"
-  },
-  {
-    "id": 25,
-    "name": "Soy Milk Vanilla",
-    "category": "Milk",
-    "image": "image/products/soy-milk.png"
-  },
-  {
-    "id": 34,
-    "name": "Almond Milk",
-    "category": "Milk",
-    "image": "image/products/almond-milk.png"
-  },
-  {
-    "id": 41,
-    "name": "Espresso Beans",
-    "category": "Coffee",
-    "image": "image/products/espresso.png"
-  },
-  {
-    "id": 47,
-    "name": "Baby Soap Chamomile",
-    "category": "Baby Barsoap",
-    "image": "image/products/baby-soap-cham.png"
-  },
-  {
-    "id": 60,
-    "name": "Muesli Cereal",
+    "name": "Muesli Cereal Kellogg's",
     "category": "Cereal",
-    "image": "image/products/muesli.png"
+    "image": "image/products/23. Muesli Cereal KELLOGG'S.jpg"
   },
   {
-    "id": 69,
-    "name": "Sriracha Sauce",
-    "category": "Sauce",
-    "image": "image/products/sriracha.png"
-  },
-  {
-    "id": 74,
-    "name": "Banana Milk",
-    "category": "Milk",
-    "image": "image/products/banana-milk.png"
-  },
-  {
-    "id": 84,
-    "name": "Seaweed Snack",
-    "category": "Snacks",
-    "image": "image/products/seaweed.png"
-  },
-  {
-    "id": 97,
-    "name": "Walnut Milk",
-    "category": "Milk",
-    "image": "image/products/walnut-milk.png"
-  },
-  {
-    "id": 100,
-    "name": "Banana Chips",
-    "category": "Snacks",
-    "image": "image/products/banana-chips.png"
-  },
-  {
-    "id": 101,
-    "name": "So Klin Liquid Detergent Blue",
+    "id": 24,
+    "name": "Mama Lemon",
     "category": "Home Care",
-    "image": "image/products/soklin-liquid.png"
-  },
-  {
-    "id": 102,
-    "name": "Mie Sedaap Goreng Original",
-    "category": "Food",
-    "image": "image/products/mie-sedaap.png"
-  },
-  {
-    "id": 103,
-    "name": "GIV White Soap Sakura",
-    "category": "Personal Care",
-    "image": "image/products/giv-sakura.png"
-  },
-  {
-    "id": 106,
-    "name": "Mama Lemon Dishwash",
-    "category": "Home Care",
-    "image": "image/products/mama-lemon.png"
-  },
-  {
-    "id": 107,
-    "name": "Mie Sedaap Soto Flavor",
-    "category": "Food",
-    "image": "image/products/mie-sedaap-soto.png"
-  },
-  {
-    "id": 108,
-    "name": "Nuvo Family Liquid Soap",
-    "category": "Personal Care",
-    "image": "image/products/nuvo-soap.png"
-  },
-  {
-    "id": 109,
-    "name": "So Klin Softergent Pink",
-    "category": "Home Care",
-    "image": "image/products/soklin-pink.png"
-  },
-  {
-    "id": 111,
-    "name": "Top Coffee Gula Aren",
-    "category": "Food",
-    "image": "image/products/top-coffee.png"
+    "image": "image/products/24. MAMA LEMON.jpg"
   }
 ]
