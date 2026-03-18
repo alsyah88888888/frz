@@ -1399,6 +1399,27 @@ input[type="checkbox"] {
   .flex-layout { flex-direction: row; }
   .sidebar { flex: 0 0 280px; position: sticky; top: 100px; display: block; }
   
+  .header-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-bottom: 30px !important;
+  }
+
+  .listing-header {
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+  }
+
+  .view-options {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
   .best-seller-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .list-container { 
     display: grid !important;
