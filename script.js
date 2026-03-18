@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         allProducts = data;
         currentFilteredProducts = [...allProducts];
+        buildCategoryFilters();
         renderProducts();
       })
       .catch((err) => {
@@ -47,16 +48,61 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --- 4. FILTER & SEARCH LOGIC ---
   const searchInput = document.getElementById("product-search");
-  const checkboxes = document.querySelectorAll(".category-checkbox");
-  const parentCheckboxes = document.querySelectorAll(".parent-checkbox");
+
+  function buildCategoryFilters() {
+    const categoryContainer = document.querySelector('.filter-list');
+    if (!categoryContainer) return;
+    
+    // Get unique categories from data
+    const categories = [...new Set(allProducts.map(p => p.category).filter(Boolean))].sort();
+    
+    // Rebuild the HTML
+    let html = `
+      <li class="has-dropdown active">
+        <div class="category-header">
+          <span><input type="checkbox" class="parent-checkbox" id="all-cats" /> All Categories</span>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        <ul class="sub-filter-list">
+    `;
+    
+    categories.forEach(cat => {
+      html += `
+          <li>
+            <input type="checkbox" class="category-checkbox" value="${cat}" /> ${cat}
+          </li>
+      `;
+    });
+    
+    html += `</ul></li>`;
+    categoryContainer.innerHTML = html;
+    
+    // Get the newly created checkboxes
+    const checkboxes = document.querySelectorAll(".category-checkbox");
+    const parentCheckboxes = document.querySelectorAll(".parent-checkbox");
+    
+    checkboxes.forEach((box) => box.addEventListener("change", applyFilters));
+    
+    parentCheckboxes.forEach((parent) => {
+      parent.addEventListener("change", function () {
+        const subContainer = this.closest(".has-dropdown").querySelector(".sub-filter-list");
+        if (subContainer) {
+          const subs = subContainer.querySelectorAll(".category-checkbox");
+          subs.forEach((s) => (s.checked = this.checked));
+          applyFilters();
+        }
+      });
+    });
+  }
 
   function applyFilters() {
     if (!allProducts || allProducts.length === 0) return;
 
+    const currentCheckboxes = document.querySelectorAll(".category-checkbox");
     const searchText = searchInput
       ? searchInput.value.toLowerCase().trim()
       : "";
-    const activeCats = Array.from(checkboxes)
+    const activeCats = Array.from(currentCheckboxes)
       .filter((i) => i.checked)
       .map((i) => i.value);
 
@@ -74,21 +120,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Event Listeners
-  if (searchInput) searchInput.addEventListener("input", applyFilters);
-  checkboxes.forEach((box) => box.addEventListener("change", applyFilters));
-
-  // Logika Checkbox Induk (Food, Beverages, dll)
-  parentCheckboxes.forEach((parent) => {
-    parent.addEventListener("change", function () {
-      const subContainer =
-        this.closest(".has-dropdown").querySelector(".sub-filter-list");
-      if (subContainer) {
-        const subs = subContainer.querySelectorAll(".category-checkbox");
-        subs.forEach((s) => (s.checked = this.checked));
+  if (searchInput) {
+    searchInput.addEventListener("input", applyFilters);
+    searchInput.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
         applyFilters();
+        // Closes drawer on mobile when hitting Enter
+        if (window.innerWidth < 992) {
+          toggleDrawer();
+        }
       }
     });
-  });
+  }
 
   // --- 5. LOAD MORE LOGIC ---
   const loadMoreBtn = document.getElementById("load-more-btn");
