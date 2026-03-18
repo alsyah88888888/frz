@@ -135,16 +135,16 @@ document.addEventListener("DOMContentLoaded", function () {
 // --- CORE FUNCTIONS (DILUAR DOMCONTENTLOADED) ---
 
 const bestSellingProducts = [
-  { name: "KIT KAT CHOCOLATE DRINK CAN 24 X 220ML", sales: "18,345", category: "Beverages & Drinks (Minuman)", image: "image/products/kitkat-drink.png" },
-  { name: "OREO ROLL VANILA 110,4 GR", sales: "7,010", category: "Snacks & Confectioneries (Camilan)", image: "image/products/oreo-vanilla.png" },
-  { name: "SUNLIGHT 610GR", sales: "6,600", category: "Home Care (Perawatan Rumah)", image: "image/products/sunlight.png" },
-  { name: "SIRUP MARJAN COCO PANDAN 460ML", sales: "5,094", category: "Beverages & Drinks (Minuman)", image: "image/products/marjan-coco.png" },
-  { name: "NESCAFE KIT KAT RTD LATTE 24x220ML", sales: "3,300", category: "Beverages & Drinks (Minuman)", image: "image/products/nescafe-kitkat.png" },
-  { name: "MEDICARE BAR SOAP LIGHT BLUE 80GR", sales: "3,300", category: "Personal Care (Perawatan Tubuh)", image: "image/products/medicare.png" },
-  { name: "OATSIDE OAT MILK BARISTA BLEND 6x1000ML", sales: "3,200", category: "Beverages & Drinks (Minuman)", image: "image/products/oatside-barista.png" },
-  { name: "OATSIDE BARISTA 6 x 1000ML", sales: "2,864", category: "Beverages & Drinks (Minuman)", image: "image/products/oatside-6.png" },
-  { name: "SIRUP MARJAN MELON 460ML", sales: "2,750", category: "Beverages & Drinks (Minuman)", image: "image/products/marjan-melon.png" },
-  { name: "OREO ROLL ORIGINAL 119,6GR", sales: "2,500", category: "Snacks & Confectioneries (Camilan)", image: "image/products/oreo-original.png" }
+  { name: "KIT KAT CHOCOLATE DRINK CAN 24 X 220ML", sales: "18,345", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/1.jpeg" },
+  { name: "OREO ROLL VANILA 110,4 GR", sales: "7,010", category: "Snacks & Confectioneries (Camilan)", image: "image/top 10 produk/2.jpeg" },
+  { name: "SUNLIGHT 610GR", sales: "6,600", category: "Home Care (Perawatan Rumah)", image: "image/top 10 produk/3.jpg" },
+  { name: "SIRUP MARJAN COCO PANDAN 460ML", sales: "5,094", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/4.webp" },
+  { name: "NESCAFE KIT KAT RTD LATTE 24x220ML", sales: "3,300", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/5.jpg" },
+  { name: "MEDICARE BAR SOAP LIGHT BLUE 80GR", sales: "3,300", category: "Personal Care (Perawatan Tubuh)", image: "image/top 10 produk/6.jpeg" },
+  { name: "OATSIDE OAT MILK BARISTA BLEND 6x1000ML", sales: "3,200", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/7.webp" },
+  { name: "OATSIDE BARISTA 6 x 1000ML", sales: "2,864", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/8.webp" },
+  { name: "SIRUP MARJAN MELON 460ML", sales: "2,750", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/9.jpg" },
+  { name: "OREO ROLL ORIGINAL 119,6GR", sales: "2,500", category: "Snacks & Confectioneries (Camilan)", image: "https://placehold.co/400x400?text=Oreo+Original" }
 ];
 
 function renderBestSellers() {
