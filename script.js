@@ -99,6 +99,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // --- 5. DRAWER LOGIC ---
+  const drawer = document.getElementById("sidebar-drawer");
+  const backdrop = document.getElementById("drawer-backdrop");
+  const filterToggle = document.getElementById("filter-toggle");
+  const closeDrawer = document.getElementById("close-drawer");
+  const applyBtn = document.getElementById("apply-filters");
+
+  function openDrawer() {
+    drawer.classList.add("active");
+    backdrop.classList.add("active");
+    document.body.style.overflow = "hidden"; // Prevent background scroll
+  }
+
+  function toggleDrawer() {
+    drawer.classList.remove("active");
+    backdrop.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  if (filterToggle) filterToggle.onclick = openDrawer;
+  if (closeDrawer) closeDrawer.onclick = toggleDrawer;
+  if (backdrop) backdrop.onclick = toggleDrawer;
+  if (applyBtn) {
+    applyBtn.onclick = () => {
+      applyFilters();
+      toggleDrawer();
+    };
+  }
+
   // Swiper & Counter tetap seperti kode Anda...
 
   if (typeof Swiper !== "undefined") {
@@ -155,13 +184,26 @@ function renderBestSellers() {
     .map(
       (p, index) => `
     <div class="best-seller-card">
-      <div class="top-badge"><i class="fas fa-crown"></i> Top ${index + 1}</div>
-      <div class="bs-img"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/200x200?text=Product'"></div>
+      <div class="top-badge">Best #${index + 1}</div>
+      <div class="bs-img">
+        <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Product'">
+        <button class="quick-shop" title="Quick Shop">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
       <div class="bs-info">
         <span class="bs-cat">${p.category}</span>
         <h4>${p.name}</h4>
+        <div class="star-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <span class="review-count">(1k+)</span>
+        </div>
         <div class="bs-stats">
-          <i class="fas fa-shopping-cart"></i> ${p.sales} Sold
+          Export Choice
         </div>
       </div>
     </div>
@@ -199,12 +241,25 @@ function renderProducts() {
     .map(
       (p) => `
     <div class="product-list-item">
-      <div class="item-img"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
+      <div class="item-img">
+        <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Product'">
+        <button class="quick-shop" title="Quick Shop">
+          <i class="fas fa-shopping-bag"></i>
+        </button>
+      </div>
       <div class="item-info">
         <span class="cat-label">${p.category}</span>
         <h4>${p.name}</h4>
+        <div class="star-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <span class="review-count">(120)</span>
+        </div>
         <a href="${p.detailsLink || "#"}" class="btn-details">
-          See Details <i class="fas fa-arrow-right"></i>
+          See Details
         </a>
       </div>
     </div>
