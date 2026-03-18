@@ -257,9 +257,6 @@ function renderProducts() {
           <i class="fas fa-star-half-alt" style="color: #3f3d91 !important;"></i>
           <span class="review-count">(120)</span>
         </div>
-        <a href="${p.detailsLink || "#"}" class="btn-details">
-          See Details
-        </a>
       </div>
     </div>
   `,

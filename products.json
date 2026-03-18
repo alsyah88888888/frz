@@ -1,114 +1,164 @@
 [
   {
+    "id": 1,
+    "name": "ABC Chili Sauce",
+    "category": "Sauce",
+    "image": "image/products/abc-chili.png"
+  },
+  {
+    "id": 2,
+    "name": "ABC Sweet Soy",
+    "category": "Others",
+    "image": "image/products/abc-soy.png"
+  },
+  {
+    "id": 3,
+    "name": "ABC Tomato Ketchup",
+    "category": "Sauce",
+    "image": "image/products/abc-tomato.png"
+  },
+  {
+    "id": 6,
+    "name": "Coffee Arabica Gold",
+    "category": "Coffee",
+    "image": "image/products/coffee.png"
+  },
+  {
+    "id": 9,
+    "name": "Full Cream Milk",
+    "category": "Milk",
+    "image": "image/products/milk.png"
+  },
+  {
+    "id": 16,
+    "name": "Hot Chili Extra",
+    "category": "Sauce",
+    "image": "image/products/hot-chili.png"
+  },
+  {
+    "id": 20,
+    "name": "Oatmeal Cereal",
+    "category": "Cereal",
+    "image": "image/products/oatmeal.png"
+  },
+  {
+    "id": 22,
+    "name": "Cassava Chips",
+    "category": "Snacks",
+    "image": "image/products/cassava.png"
+  },
+  {
+    "id": 23,
+    "name": "Baby Soap Lavender",
+    "category": "Baby Barsoap",
+    "image": "image/products/baby-soap-lav.png"
+  },
+  {
+    "id": 25,
+    "name": "Soy Milk Vanilla",
+    "category": "Milk",
+    "image": "image/products/soy-milk.png"
+  },
+  {
+    "id": 34,
+    "name": "Almond Milk",
+    "category": "Milk",
+    "image": "image/products/almond-milk.png"
+  },
+  {
+    "id": 41,
+    "name": "Espresso Beans",
+    "category": "Coffee",
+    "image": "image/products/espresso.png"
+  },
+  {
+    "id": 47,
+    "name": "Baby Soap Chamomile",
+    "category": "Baby Barsoap",
+    "image": "image/products/baby-soap-cham.png"
+  },
+  {
+    "id": 60,
+    "name": "Muesli Cereal",
+    "category": "Cereal",
+    "image": "image/products/muesli.png"
+  },
+  {
+    "id": 69,
+    "name": "Sriracha Sauce",
+    "category": "Sauce",
+    "image": "image/products/sriracha.png"
+  },
+  {
+    "id": 74,
+    "name": "Banana Milk",
+    "category": "Milk",
+    "image": "image/products/banana-milk.png"
+  },
+  {
+    "id": 84,
+    "name": "Seaweed Snack",
+    "category": "Snacks",
+    "image": "image/products/seaweed.png"
+  },
+  {
+    "id": 97,
+    "name": "Walnut Milk",
+    "category": "Milk",
+    "image": "image/products/walnut-milk.png"
+  },
+  {
     "id": 100,
     "name": "Banana Chips",
     "category": "Snacks",
-    "image": "image/products/banana-chips.png",
-    "detailsLink": "product-100.html"
+    "image": "image/products/banana-chips.png"
   },
   {
     "id": 101,
     "name": "So Klin Liquid Detergent Blue",
     "category": "Home Care",
-    "image": "image/products/soklin-liquid.png",
-    "detailsLink": "product-101.html"
+    "image": "image/products/soklin-liquid.png"
   },
   {
     "id": 102,
     "name": "Mie Sedaap Goreng Original",
     "category": "Food",
-    "image": "image/products/mie-sedaap.png",
-    "detailsLink": "product-102.html"
+    "image": "image/products/mie-sedaap.png"
   },
   {
     "id": 103,
     "name": "GIV White Soap Sakura",
     "category": "Personal Care",
-    "image": "image/products/giv-sakura.png",
-    "detailsLink": "product-103.html"
-  },
-  {
-    "id": 104,
-    "name": "Daia Detergent Lemon",
-    "category": "Home Care",
-    "image": "image/products/daia-lemon.png",
-    "detailsLink": "product-104.html"
-  },
-  {
-    "id": 105,
-    "name": "Emeron Shampoo Black Shine",
-    "category": "Personal Care",
-    "image": "image/products/emeron-shampoo.png",
-    "detailsLink": "product-105.html"
+    "image": "image/products/giv-sakura.png"
   },
   {
     "id": 106,
     "name": "Mama Lemon Dishwash",
     "category": "Home Care",
-    "image": "image/products/mama-lemon.png",
-    "detailsLink": "product-106.html"
+    "image": "image/products/mama-lemon.png"
   },
   {
     "id": 107,
     "name": "Mie Sedaap Soto Flavor",
     "category": "Food",
-    "image": "image/products/mie-sedaap-soto.png",
-    "detailsLink": "product-107.html"
+    "image": "image/products/mie-sedaap-soto.png"
   },
   {
     "id": 108,
     "name": "Nuvo Family Liquid Soap",
     "category": "Personal Care",
-    "image": "image/products/nuvo-soap.png",
-    "detailsLink": "product-108.html"
+    "image": "image/products/nuvo-soap.png"
   },
   {
     "id": 109,
     "name": "So Klin Softergent Pink",
     "category": "Home Care",
-    "image": "image/products/soklin-pink.png",
-    "detailsLink": "product-109.html"
-  },
-  {
-    "id": 110,
-    "name": "Ciptadent Toothpaste Maxi",
-    "category": "Personal Care",
-    "image": "image/products/ciptadent.png",
-    "detailsLink": "product-110.html"
+    "image": "image/products/soklin-pink.png"
   },
   {
     "id": 111,
     "name": "Top Coffee Gula Aren",
     "category": "Food",
-    "image": "image/products/top-coffee.png",
-    "detailsLink": "product-111.html"
-  },
-  {
-    "id": 112,
-    "name": "Potabee Potato Chips BBQ",
-    "category": "Food",
-    "image": "image/products/potabee.png",
-    "detailsLink": "product-112.html"
-  },
-  {
-    "id": 113,
-    "name": "Kodomo Baby Wipes",
-    "category": "Personal Care",
-    "image": "image/products/kodomo-wipes.png",
-    "detailsLink": "product-113.html"
-  },
-  {
-    "id": 114,
-    "name": "Rapika Liquid Starch",
-    "category": "Home Care",
-    "image": "image/products/rapika.png",
-    "detailsLink": "product-114.html"
-  },
-  {
-    "id": 115,
-    "name": "Serasoft Shampoo Hairfall",
-    "category": "Personal Care",
-    "image": "image/products/serasoft.png",
-    "detailsLink": "product-115.html"
+    "image": "image/products/top-coffee.png"
   }
 ]
