@@ -172,7 +172,7 @@ const bestSellingProducts = [
   { name: "MEDICARE BAR SOAP LIGHT BLUE 80GR", sales: "3,300", category: "Personal Care (Perawatan Tubuh)", image: "image/top 10 produk/6. MEDICARE BAR SOAP LIGHT BLUE 80GR KIT KAT RTD LATTE 24x220ML" },
   { name: "OATSIDE OAT MILK BARISTA BLEND 6x1000ML", sales: "3,200", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/7. OATSIDE OAT MILK BARISTA BLEND 6x1000ML.jpg" },
   { name: "OATSIDE BARISTA 6 x 1000ML", sales: "2,864", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/8. OATSIDE BARISTA 6 x 1000ML.jpg" },
-  { name: "SIRUP MARJAN MELON 460ML", sales: "2,750", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/9. SIRUP MARJAN MELON 460ML.jpg" },
+  { name: "SIRUP MARJAN MELON 460ML", sales: "2,750", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/9. OATSIDE BARISTA 6 x 1000ML.jpg" },
   { name: "OREO ROLL ORIGINAL 119,6GR", sales: "2,500", category: "Snacks & Confectioneries (Camilan)", image: "image/top 10 produk/10. OREO ROLL ORIGINAL 119,6GR.jpg" }
 ];
 
