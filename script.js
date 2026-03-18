@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // --- CORE FUNCTIONS (DILUAR DOMCONTENTLOADED) ---
 
 const bestSellingProducts = [
-  { name: "KIT KAT CHOCOLATE DRINK CAN 24 X 220ML", sales: "18,345", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/1.jpeg" },
+  { name: "KIT KAT CHOCOLATE DRINK CAN 24 X 220ML", sales: "18,345", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/KIT KAT CHOCOLATE DRINK CAN 24 X 220ML.jpg" },
   { name: "OREO ROLL VANILA 110,4 GR", sales: "7,010", category: "Snacks & Confectioneries (Camilan)", image: "image/top 10 produk/2.jpeg" },
   { name: "SUNLIGHT 610GR", sales: "6,600", category: "Home Care (Perawatan Rumah)", image: "image/top 10 produk/3.jpg" },
   { name: "SIRUP MARJAN COCO PANDAN 460ML", sales: "5,094", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/4.webp" },
@@ -218,7 +218,7 @@ function renderProducts() {
   if (!container) return;
 
   const toShow = currentFilteredProducts.slice(0, displayedCount);
-  
+
   if (toShow.length === 0) {
     container.style.display = "block";
     container.innerHTML = `
