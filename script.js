@@ -173,7 +173,7 @@ const bestSellingProducts = [
   { name: "OATSIDE OAT MILK BARISTA BLEND 6x1000ML", sales: "3,200", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/7.webp" },
   { name: "OATSIDE BARISTA 6 x 1000ML", sales: "2,864", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/8.webp" },
   { name: "SIRUP MARJAN MELON 460ML", sales: "2,750", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/9.jpg" },
-  { name: "OREO ROLL ORIGINAL 119,6GR", sales: "2,500", category: "Snacks & Confectioneries (Camilan)", image: "https://placehold.co/400x400?text=Oreo+Original" }
+  { name: "OREO ROLL ORIGINAL 119,6GR", sales: "2,500", category: "Snacks & Confectioneries (Camilan)", image: "image/top 10 produk/10.jpeg" }
 ];
 
 function renderBestSellers() {
@@ -184,7 +184,7 @@ function renderBestSellers() {
     .map(
       (p, index) => `
     <div class="best-seller-card">
-      <div class="top-badge">Best #${index + 1}</div>
+      <div class="top-badge">Top #${index + 1}</div>
       <div class="bs-img">
         <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Product'">
         <button class="quick-shop" title="Quick Shop">
@@ -235,7 +235,6 @@ function renderProducts() {
   // Preserve layout mode
   const isListMode = document.querySelector(".fa-list").classList.contains("active");
   container.className = isListMode ? "list-container list-mode" : "list-container";
-  container.style.display = isListMode ? "flex" : "grid";
 
   container.innerHTML = toShow
     .map(
@@ -251,11 +250,11 @@ function renderProducts() {
         <span class="cat-label">${p.category}</span>
         <h4>${p.name}</h4>
         <div class="star-rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
+          <i class="fas fa-star" style="color: #3f3d91 !important;"></i>
+          <i class="fas fa-star" style="color: #3f3d91 !important;"></i>
+          <i class="fas fa-star" style="color: #3f3d91 !important;"></i>
+          <i class="fas fa-star" style="color: #3f3d91 !important;"></i>
+          <i class="fas fa-star-half-alt" style="color: #3f3d91 !important;"></i>
           <span class="review-count">(120)</span>
         </div>
         <a href="${p.detailsLink || "#"}" class="btn-details">
@@ -294,12 +293,10 @@ document.addEventListener("click", function (e) {
       gridIcon.classList.add("active");
       listIcon.classList.remove("active");
       container.classList.remove("list-mode");
-      container.style.display = "grid";
     } else {
       listIcon.classList.add("active");
       gridIcon.classList.remove("active");
       container.classList.add("list-mode");
-      container.style.display = "flex";
     }
     renderProducts();
   }

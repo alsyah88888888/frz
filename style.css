@@ -551,9 +551,9 @@ body {
 }
 
 .btn-filter:hover {
-  border-color: #ff8e8e;
-  color: #ff8e8e;
-  box-shadow: 0 4px 12px rgba(255,142,142,0.15);
+  border-color: #004a99;
+  color: #004a99;
+  box-shadow: 0 4px 12px rgba(0, 74, 153, 0.15);
 }
 
 /* Sidebar Drawer */
@@ -828,9 +828,16 @@ input[type="checkbox"] {
 
 /* Grid View (Default) - Judydoll Style */
 .list-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
   gap: 30px;
+  width: 100%;
+}
+
+.list-container.list-mode {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px;
 }
 
 .product-list-item {
@@ -842,6 +849,16 @@ input[type="checkbox"] {
   flex-direction: column;
   height: 100%;
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 250px;
+  border: 1px solid #f0f0f0;
+}
+
+.list-mode .product-list-item {
+  flex-direction: row;
+  height: auto;
+  align-items: center;
 }
 
 .product-list-item:hover {
@@ -858,6 +875,12 @@ input[type="checkbox"] {
   position: relative;
   overflow: hidden;
   padding: 0;
+}
+
+.list-mode .item-img {
+  width: 150px;
+  min-width: 150px;
+  aspect-ratio: 1/1;
 }
 
 .item-img img {
@@ -892,7 +915,7 @@ input[type="checkbox"] {
 }
 
 .quick-shop:hover {
-  background: #ff8e8e;
+  background: #004a99;
   color: #fff;
   transform: scale(1.1);
 }
@@ -900,6 +923,12 @@ input[type="checkbox"] {
 .item-info {
   padding: 20px 10px;
   text-align: center;
+  width: 100%;
+}
+
+.list-mode .item-info {
+  text-align: left;
+  padding: 20px 30px;
 }
 
 .cat-label {
@@ -935,7 +964,7 @@ input[type="checkbox"] {
 
 .btn-details {
   display: inline-block;
-  color: #333;
+  color: #3f3d91;
   text-decoration: underline;
   font-weight: 700;
   font-size: 0.9rem;
@@ -943,7 +972,7 @@ input[type="checkbox"] {
 }
 
 .btn-details:hover {
-  color: #ff8e8e;
+  color: #2e2c7a;
 }
 
 /* ===== PROGRAMS SECTION ===== */
@@ -1143,7 +1172,7 @@ input[type="checkbox"] {
 
 .section-title-wrapper h2 {
   font-size: 2.8rem;
-  color: #1a1a1a;
+  color: #004a99;
   margin-bottom: 15px;
   font-weight: 800;
 }
@@ -1190,7 +1219,7 @@ input[type="checkbox"] {
   left: 0;
   width: 100%;
   height: 5px;
-  background: linear-gradient(90deg, #004a99, #008cff);
+  background: #004a99;
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -1203,7 +1232,7 @@ input[type="checkbox"] {
   position: absolute;
   top: 15px;
   left: 15px;
-  background: #ff8e8e;
+  background: #004a99;
   color: #fff;
   font-size: 0.75rem;
   font-weight: 800;
@@ -1278,11 +1307,11 @@ input[type="checkbox"] {
 }
 
 .best-seller-card:hover .bs-stats {
-  background: #e8f5e9;
+  background: #e3f2fd;
 }
 
 .bs-stats i {
-  color: #2e7d32;
+  color: #004a99;
   font-size: 1.1rem;
 }
 
@@ -1314,9 +1343,35 @@ input[type="checkbox"] {
   .sidebar { width: 100%; position: static; margin-bottom: 30px; max-width: 100%; }
   
   .best-seller-grid { grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); }
-  .list-container { grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); }
+  .list-container { 
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)) !important; 
+  }
+  .list-container.list-mode {
+    display: flex !important;
+  }
   
   .best-seller-section { padding: 30px 20px; }
+}
+
+/* MOBILE SPECIFIC FIX - Eliminate Horizontal Overflow */
+@media (max-width: 576px) {
+  .products-container { padding: 40px 15px; }
+  .list-container {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .product-list-item {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+  .header-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .best-seller-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 /* 2. Tablets & Small Laptops [min-width: 768px] */
@@ -1345,7 +1400,13 @@ input[type="checkbox"] {
   .sidebar { flex: 0 0 280px; position: sticky; top: 100px; display: block; }
   
   .best-seller-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .list-container { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .list-container { 
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; 
+  }
+  .list-container.list-mode {
+    display: flex !important;
+  }
   
   .hero-content h1 { font-size: 3.5rem; }
 }
@@ -1356,11 +1417,135 @@ input[type="checkbox"] {
   .products-container { padding: 80px 10%; }
   .flex-layout { gap: 50px; }
   
-  .best-seller-grid, .list-container { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  
+  .best-seller-grid, .list-container { 
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; 
+  }
+
   .container, .stat-container, .footer-container {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+/* MOBILE SPECIFIC FIX - Eliminate Horizontal Overflow */
+@media (max-width: 576px) {
+  .products-container { padding: 40px 15px !important; }
+  .list-container {
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+    gap: 20px !important;
+  }
+  .product-list-item {
+    min-width: 0 !important;
+    width: 100% !important;
+    flex-direction: column !important;
+  }
+  .item-img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1/1 !important;
+  }
+  .header-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .best-seller-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 
+   ==========================================================================
+   FINAL FRZ BRANDING & LAYOUT OVERRIDES (Do not remove)
+   ==========================================================================
+*/
+
+/* 1. Global Branding Revert (No Salmon/Peach) */
+.top-badge, 
+.badge, 
+.section-title-wrapper .badge, 
+#load-more-btn {
+  background: #004a99 !important;
+  color: #ffffff !important;
+  border-color: #004a99 !important;
+  box-shadow: 0 4px 10px rgba(0, 74, 153, 0.2) !important;
+}
+
+.star-rating i {
+  color: #3f3d91 !important; /* Original FRZ Purple-ish Blue */
+}
+
+.btn-details {
+  color: #3f3d91 !important;
+  text-decoration: underline !important;
+}
+
+.btn-details:hover {
+  color: #2e2c7a !important;
+}
+
+.btn-filter:hover, 
+.quick-shop:hover {
+  background-color: #004a99 !important;
+  color: #ffffff !important;
+  border-color: #004a99 !important;
+}
+
+/* 2. Grid & Mobile Layout Fixes (Eliminate Squeezed Rows) */
+.list-container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+  gap: 30px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 767px) {
+  .list-container {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .product-list-item {
+    min-width: 0 !important;
+    width: 100% !important;
+    flex-direction: column !important;
+  }
+  .item-img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1/1 !important;
+  }
+  .best-seller-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 3. Robust List Mode Styles */
+.list-container.list-mode {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+.list-container.list-mode .product-list-item {
+  flex-direction: row !important;
+  height: auto !important;
+  min-height: 180px !important;
+  align-items: center !important;
+  padding: 15px !important;
+  width: 100% !important;
+}
+
+.list-container.list-mode .item-img {
+  width: 150px !important;
+  min-width: 150px !important;
+  height: 150px !important;
+  aspect-ratio: 1/1 !important;
+}
+
+.list-container.list-mode .item-info {
+  text-align: left !important;
+  padding: 0 30px !important;
+  flex: 1 !important;
 }
