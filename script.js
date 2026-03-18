@@ -127,10 +127,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Panggil fungsi counter
   initCounters();
-}); // <--- PENUTUP DOMContentLoaded (Pastikan ini ada!)
+
+  // --- 6. RENDER BEST SELLERS ---
+  renderBestSellers();
+}); // <--- PENUTUP DOMContentLoaded
 
 // --- CORE FUNCTIONS (DILUAR DOMCONTENTLOADED) ---
 
+const bestSellingProducts = [
+  { name: "KIT KAT CHOCOLATE DRINK CAN 24 X 220ML", sales: "18,345", category: "Beverages & Drinks (Minuman)", image: "image/products/kitkat-drink.png" },
+  { name: "OREO ROLL VANILA 110,4 GR", sales: "7,010", category: "Snacks & Confectioneries (Camilan)", image: "image/products/oreo-vanilla.png" },
+  { name: "SUNLIGHT 610GR", sales: "6,600", category: "Home Care (Perawatan Rumah)", image: "image/products/sunlight.png" },
+  { name: "SIRUP MARJAN COCO PANDAN 460ML", sales: "5,094", category: "Beverages & Drinks (Minuman)", image: "image/products/marjan-coco.png" },
+  { name: "NESCAFE KIT KAT RTD LATTE 24x220ML", sales: "3,300", category: "Beverages & Drinks (Minuman)", image: "image/products/nescafe-kitkat.png" },
+  { name: "MEDICARE BAR SOAP LIGHT BLUE 80GR", sales: "3,300", category: "Personal Care (Perawatan Tubuh)", image: "image/products/medicare.png" },
+  { name: "OATSIDE OAT MILK BARISTA BLEND 6x1000ML", sales: "3,200", category: "Beverages & Drinks (Minuman)", image: "image/products/oatside-barista.png" },
+  { name: "OATSIDE BARISTA 6 x 1000ML", sales: "2,864", category: "Beverages & Drinks (Minuman)", image: "image/products/oatside-6.png" },
+  { name: "SIRUP MARJAN MELON 460ML", sales: "2,750", category: "Beverages & Drinks (Minuman)", image: "image/products/marjan-melon.png" },
+  { name: "OREO ROLL ORIGINAL 119,6GR", sales: "2,500", category: "Snacks & Confectioneries (Camilan)", image: "image/products/oreo-original.png" }
+];
+
+function renderBestSellers() {
+  const container = document.getElementById("best-seller-display");
+  if (!container) return;
+
+  container.innerHTML = bestSellingProducts
+    .map(
+      (p, index) => `
+    <div class="best-seller-card">
+      <div class="top-badge"><i class="fas fa-crown"></i> Top ${index + 1}</div>
+      <div class="bs-img"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/200x200?text=Product'"></div>
+      <div class="bs-info">
+        <span class="bs-cat">${p.category}</span>
+        <h4>${p.name}</h4>
+        <div class="bs-stats">
+          <i class="fas fa-shopping-cart"></i> ${p.sales} Sold
+        </div>
+      </div>
+    </div>
+  `
+    )
+    .join("");
+}
+
 function renderProducts() {
   const container = document.getElementById("product-display");
   const loadMoreBtn = document.getElementById("load-more-btn");
@@ -226,99 +265,3 @@ function initCounters() {
   document.querySelectorAll(".counter").forEach((c) => observer.observe(c));
 }
 
-// --- CORE FUNCTIONS (Render & Helpers) ---
-function renderProducts() {
-  const container = document.getElementById("product-display");
-  const loadMoreBtn = document.getElementById("load-more-btn");
-  if (!container) return;
-
-  const toShow = currentFilteredProducts.slice(0, displayedCount);
-  container.innerHTML = toShow
-    .map(
-      (p) => `
-    <div class="product-list-item">
-      <div class="item-img"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
-      <div class="item-info">
-        <span class="cat-label">${p.category}</span>
-        <h4>${p.name}</h4>
-        <a href="${p.detailsLink || "#"}" class="btn-details">See Details <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
-  `,
-    )
-    .join("");
-
-  const counterElement = document.getElementById("product-counter");
-  if (counterElement) {
-    counterElement.innerText = `Showing ${toShow.length} of ${currentFilteredProducts.length} results`;
-  }
-
-  if (loadMoreBtn) {
-    loadMoreBtn.style.display =
-      displayedCount >= currentFilteredProducts.length
-        ? "none"
-        : "inline-block";
-  }
-}
-
-// (Fungsi loadComponent, initMobileMenu, dll tetap sama)
-function loadComponent(id, file, callback) {
-  const el = document.getElementById(id);
-  if (el) {
-    fetch(file)
-      .then((res) => res.text())
-      .then((data) => {
-        el.innerHTML = data;
-        if (callback) callback();
-      });
-  }
-}
-
-function initMobileMenu() {
-  const menuToggle = document.getElementById("mobile-menu");
-  const navLinks = document.querySelector(".nav-links");
-  if (menuToggle && navLinks) {
-    menuToggle.onclick = () => {
-      navLinks.classList.toggle("active");
-      const icon = menuToggle.querySelector("i");
-      if (icon) {
-        icon.classList.toggle("fa-bars");
-        icon.classList.toggle("fa-times");
-      }
-    };
-  }
-}
-
-function setActiveLink() {
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".nav-links a").forEach((link) => {
-    if (link.getAttribute("href").toLowerCase() === currentPage.toLowerCase()) {
-      link.classList.add("active-link");
-    }
-  });
-}
-
-function initCounters() {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const counter = entry.target;
-          const target = +counter.getAttribute("data-target");
-          let count = 0;
-          const update = () => {
-            count += target / 100;
-            if (count < target) {
-              counter.innerText = Math.ceil(count);
-              setTimeout(update, 10);
-            } else counter.innerText = target;
-          };
-          update();
-          observer.unobserve(counter);
-        }
-      });
-    },
-    { threshold: 0.7 },
-  );
-  document.querySelectorAll(".counter").forEach((c) => observer.observe(c));
-}
