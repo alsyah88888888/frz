@@ -934,83 +934,6 @@ input[type="checkbox"] {
   color: #777;
 }
 
-/* ===== RESPONSIVE BREAKPOINTS ===== */
-
-/* 1. Phones & Tablets (Common Mobile) [max-width: 991px] */
-@media (max-width: 991px) {
-  .navbar { height: 70px; padding: 10px 5% !important; }
-  .logo-text { font-size: 1.1rem; }
-  .menu-toggle { display: block !important; }
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    padding: 30px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    z-index: 9999;
-  }
-  .nav-links.active { display: flex !important; }
-  .nav-links li { margin: 15px 0; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; margin-left: 0; }
-  
-  .hero-content h1 { font-size: 2.2rem !important; }
-  .flex-layout { flex-direction: column; }
-  .sidebar { width: 100%; position: static; margin-bottom: 30px; max-width: 100%; }
-  
-  .best-seller-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
-  .list-container { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-  
-  .best-seller-section { padding: 30px 20px; }
-}
-
-/* 2. Tablets & Small Laptops [min-width: 768px] */
-@media (min-width: 768px) {
-  .best-seller-grid { grid-template-columns: repeat(2, 1fr); }
-  .list-container { grid-template-columns: repeat(2, 1fr); }
-  .stat-container { justify-content: space-around; }
-}
-
-/* 3. Laptops & Desktop [min-width: 992px] */
-@media (min-width: 992px) {
-  .navbar { padding: 10px 8%; }
-  .menu-toggle { display: none !important; }
-  .nav-links { 
-    display: flex !important; 
-    position: static; 
-    background: none; 
-    box-shadow: none; 
-    padding: 0; 
-    flex-direction: row; 
-    width: auto;
-  }
-  .nav-links li { margin-left: 25px; border: none; padding: 0; }
-  
-  .flex-layout { flex-direction: row; }
-  .sidebar { flex: 0 0 280px; position: sticky; top: 100px; display: block; }
-  
-  .best-seller-grid { grid-template-columns: repeat(3, 1fr); }
-  .list-container { grid-template-columns: repeat(3, 1fr); }
-  
-  .hero-content h1 { font-size: 3.5rem; }
-}
-
-/* 4. Large Desktops [min-width: 1200px] */
-@media (min-width: 1200px) {
-  .navbar { padding: 10px 10%; }
-  .products-container { padding: 80px 10%; }
-  .flex-layout { gap: 50px; }
-  
-  .best-seller-grid, .list-container { grid-template-columns: repeat(4, 1fr); }
-  
-  .container, .stat-container, .footer-container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
 /* ===== GOOGLE TRANSLATE CUSTOMIZATION ===== */
 .goog-te-banner-frame.skiptranslate {
   display: none !important;
@@ -1020,7 +943,7 @@ input[type="checkbox"] {
 .best-seller-section {
   margin-bottom: 60px;
   background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
-  padding: 50px;
+  padding: 50px 5%;
   border-radius: 30px;
   box-shadow: 0 20px 40px rgba(0, 74, 153, 0.08);
   border: 1px solid rgba(0, 74, 153, 0.1);
@@ -1076,7 +999,7 @@ input[type="checkbox"] {
 
 .best-seller-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
   gap: 30px;
   position: relative;
   z-index: 1;
@@ -1202,4 +1125,83 @@ input[type="checkbox"] {
 .bs-stats i {
   color: #2e7d32;
   font-size: 1.1rem;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* 1. Phones & Tablets (Common Mobile) [max-width: 991px] */
+@media (max-width: 991px) {
+  .navbar { height: 70px; padding: 10px 5% !important; }
+  .logo-text { font-size: 1.1rem; }
+  .logo-img { height: 35px; }
+  .menu-toggle { display: block !important; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    z-index: 9999;
+  }
+  .nav-links.active { display: flex !important; }
+  .nav-links li { margin: 15px 0; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; margin-left: 0; }
+  
+  .hero-content h1 { font-size: 2.2rem !important; }
+  .flex-layout { flex-direction: column; }
+  .sidebar { width: 100%; position: static; margin-bottom: 30px; max-width: 100%; }
+  
+  .best-seller-grid { grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); }
+  .list-container { grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); }
+  
+  .best-seller-section { padding: 30px 20px; }
+}
+
+/* 2. Tablets & Small Laptops [min-width: 768px] */
+@media (min-width: 768px) {
+  .best-seller-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .list-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat-container { justify-content: space-around; }
+}
+
+/* 3. Laptops & Desktop [min-width: 992px] */
+@media (min-width: 992px) {
+  .navbar { padding: 10px 8%; }
+  .menu-toggle { display: none !important; }
+  .nav-links { 
+    display: flex !important; 
+    position: static; 
+    background: none; 
+    box-shadow: none; 
+    padding: 0; 
+    flex-direction: row; 
+    width: auto;
+  }
+  .nav-links li { margin-left: 25px; border: none; padding: 0; }
+  
+  .flex-layout { flex-direction: row; }
+  .sidebar { flex: 0 0 280px; position: sticky; top: 100px; display: block; }
+  
+  .best-seller-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .list-container { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  
+  .hero-content h1 { font-size: 3.5rem; }
+}
+
+/* 4. Large Desktops [min-width: 1200px] */
+@media (min-width: 1200px) {
+  .navbar { padding: 10px 10%; }
+  .products-container { padding: 80px 10%; }
+  .flex-layout { gap: 50px; }
+  
+  .best-seller-grid, .list-container { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  
+  .container, .stat-container, .footer-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
