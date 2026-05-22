@@ -177,22 +177,21 @@ document.addEventListener("DOMContentLoaded", function () {
   if (typeof Swiper !== "undefined") {
     new Swiper(".brandSwiper", {
       slidesPerView: 2,
-      spaceBetween: 20, // Gap rapat untuk mobile
-      centeredSlides: true, // Berhenti di tengah
+      spaceBetween: 30,
       loop: true,
+      speed: 3000, // Continuous smooth scrolling speed
       autoplay: {
-        delay: 2500,
+        delay: 0, // No delay between transitions
         disableOnInteraction: false,
       },
       breakpoints: {
         640: {
           slidesPerView: 3,
-          spaceBetween: 30,
+          spaceBetween: 40,
         },
         1024: {
-          slidesPerView: 5, // Menampilkan 5 logo sekaligus agar gap mengecil
-          spaceBetween: 40, // Jarak antar logo di desktop
-          centeredSlides: false, // Matikan centered di desktop jika jumlah logo pas dengan view
+          slidesPerView: 5, 
+          spaceBetween: 50, 
         },
       },
     });

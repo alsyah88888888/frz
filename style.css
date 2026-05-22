@@ -290,48 +290,56 @@ body {
 /* --- Style untuk Brand Carousel (Fixed) --- */
 .brand-section {
   padding: 80px 0;
-  background-color: #ffffff;
+  background-color: #f8fafc;
+  border-top: 1px solid #edf2f7;
   overflow: hidden;
 }
 
 .brand-title {
   text-align: center;
-  margin-bottom: 40px;
-  color: #333;
-  font-size: 1.8rem;
-  font-weight: 600;
+  margin-bottom: 50px;
+  color: #1a202c;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 /* KUNCI: Gunakan class yang sama dengan HTML (brandSwiper) */
 .brandSwiper {
   width: 100%;
-  max-width: 1000px; /* Membatasi lebar agar logo merapat ke tengah */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px 0;
 }
 
-.swiper-slide {
+.brandSwiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+.brandSwiper .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px; /* Sesuaikan tinggi slide */
+  height: 120px; 
 }
 
-.swiper-slide img {
-  max-height: 100px; /* Ukuran logo seragam */
-  max-width: 180px;
+.brandSwiper .swiper-slide img {
+  max-height: 90px; 
+  max-width: 160px;
   width: auto;
   height: auto;
   object-fit: contain;
   filter: grayscale(100%);
-  opacity: 0.6;
-  transition: all 0.4s ease;
+  opacity: 0.5;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
-.swiper-slide img:hover {
+.brandSwiper .swiper-slide img:hover {
   filter: grayscale(0%);
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 /* ===== PAGE CONTENT ===== */
