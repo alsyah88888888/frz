@@ -154,13 +154,31 @@ body {
   text-align: center;
   color: white;
   padding-top: 80px;
+  position: relative;
 }
 
 .hero {
   height: 100vh;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2000");
+}
+
+/* Hero Background Slider Styles */
+.background-slider {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.background-slider .swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.z-index-content {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-about {
@@ -363,8 +381,14 @@ body {
 
 .hero-products-small {
   padding: 100px 10% 40px;
-  background: #f4f7f9;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("image/header/1.jpg");
+  background-size: cover;
+  background-position: center;
   text-align: left;
+  color: white;
+}
+.hero-products-small h1, .hero-products-small .breadcrumb {
+  color: white !important;
 }
 
 .breadcrumb {
@@ -571,12 +595,12 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
   z-index: 2000;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .drawer-backdrop.active {
@@ -850,9 +874,9 @@ input[type="checkbox"] {
 
 .product-list-item {
   background: #fff;
-  border-radius: 15px;
+  border-radius: 16px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -860,7 +884,8 @@ input[type="checkbox"] {
   width: 100%;
   max-width: 100%;
   min-width: 250px;
-  border: 1px solid #f0f0f0;
+  border: 1px solid #edf2f7;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
 .list-mode .product-list-item {
@@ -870,7 +895,9 @@ input[type="checkbox"] {
 }
 
 .product-list-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  border-color: transparent;
 }
 
 .item-img {
@@ -1202,22 +1229,23 @@ input[type="checkbox"] {
 
 .best-seller-card {
   background: #ffffff;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #edf2f7;
   border-radius: 20px;
   padding: 25px;
   text-align: center;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
   position: relative;
   overflow: hidden;
   height: 100%;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
 }
 
 .best-seller-card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 25px 50px rgba(0, 74, 153, 0.15);
-  border-color: #008cff;
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  border-color: transparent;
 }
 
 .best-seller-card::after {

@@ -175,6 +175,17 @@ document.addEventListener("DOMContentLoaded", function () {
   // Swiper & Counter tetap seperti kode Anda...
 
   if (typeof Swiper !== "undefined") {
+    new Swiper(".heroSwiper", {
+      loop: true,
+      effect: "fade", // Add smooth fade transition if Swiper effect-fade module is loaded (or defaults to slide if not)
+      speed: 1500, // 1.5s transition
+      autoplay: {
+        delay: 3500, // wait 3.5s
+        disableOnInteraction: false,
+      },
+      allowTouchMove: false, // background slider doesn't need touch
+    });
+
     new Swiper(".brandSwiper", {
       slidesPerView: 2,
       spaceBetween: 30,
