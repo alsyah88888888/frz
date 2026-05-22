@@ -1576,8 +1576,8 @@ input[type="checkbox"] {
 /* 2. Grid & Mobile Layout Fixes (Eliminate Squeezed Rows) */
 .list-container {
   display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
-  gap: 30px !important;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+  gap: 20px !important;
   width: 100% !important;
   max-width: 100% !important;
 }
