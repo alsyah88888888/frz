@@ -311,6 +311,9 @@ function renderProducts() {
           <i class="fas fa-star-half-alt" style="color: #3f3d91 !important;"></i>
           <span class="review-count">(120)</span>
         </div>
+        <div style="margin-top: auto; padding-top: 15px;">
+           <span style="font-size: 0.85rem; padding: 6px 15px; border: 1px solid #edf2f7; border-radius: 50px; color: #3f3d91; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#3f3d91'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#3f3d91'">View Details</span>
+        </div>
       </div>
     </div>
   `,
