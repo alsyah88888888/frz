@@ -1432,13 +1432,37 @@ input[type="checkbox"] {
   }
   .nav-links li { margin-left: 25px; border: none; padding: 0; }
   
-  .flex-layout { flex-direction: row; }
-  .sidebar { flex: 0 0 280px; position: sticky; top: 100px; display: block; }
+  /* E-Commerce Desktop Layout */
+  .flex-layout { 
+    flex-direction: row !important; 
+    align-items: flex-start;
+  }
+  
+  .sidebar-drawer { 
+    position: sticky !important; 
+    top: 120px !important; 
+    left: 0 !important;
+    flex: 0 0 280px !important;
+    width: 280px !important;
+    height: auto !important;
+    max-height: calc(100vh - 140px);
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  
+  .drawer-backdrop { display: none !important; }
+  .btn-close-drawer, .drawer-footer { display: none !important; }
+  .btn-filter { display: none !important; }
+  
+  .product-listing {
+    flex: 1;
+    min-width: 0;
+  }
   
   .header-actions {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: space-between !important;
+    justify-content: flex-end !important; /* Move to right since filter btn is hidden */
     align-items: center !important;
     width: 100% !important;
     margin-bottom: 30px !important;
