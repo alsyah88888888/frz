@@ -31,18 +31,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --- 3. LOAD DATA PRODUK ---
   const productDisplay = document.getElementById("product-display");
-  if (productDisplay) {
+  const bestSellerDisplay = document.getElementById("best-seller-display");
+  if (productDisplay || bestSellerDisplay) {
     fetch("products.json")
       .then((res) => res.json())
       .then((data) => {
         allProducts = data;
         currentFilteredProducts = [...allProducts];
-        buildCategoryFilters();
-        renderProducts();
+        if (productDisplay) {
+          buildCategoryFilters();
+          renderProducts();
+        }
+        if (bestSellerDisplay) {
+          renderBestSellers();
+        }
       })
       .catch((err) => {
         console.error("Gagal memuat produk:", err);
-        productDisplay.innerHTML = "<p>Gagal memuat data produk.</p>";
+        if (productDisplay) {
+          productDisplay.innerHTML = "<p>Gagal memuat data produk.</p>";
+        }
       });
   }
 
@@ -210,31 +218,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Panggil fungsi counter
   initCounters();
-
-  // --- 6. RENDER BEST SELLERS ---
-  renderBestSellers();
 }); // <--- PENUTUP DOMContentLoaded
 
 // --- CORE FUNCTIONS (DILUAR DOMCONTENTLOADED) ---
 
-const bestSellingProducts = [
-  { name: "KIT KAT CHOCOLATE DRINK CAN 24 X 220ML", sales: "18,345", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/1. KIT KAT CHOCOLATE DRINK CAN 24 X 220ML.jpg" },
-  { name: "OREO ROLL VANILA 110,4 GR", sales: "7,010", category: "Snacks & Confectioneries (Camilan)", image: "image/top 10 produk/2. OREO ROLL VANILA 110,4 GR.jpg" },
-  { name: "SUNLIGHT 610GR", sales: "6,600", category: "Home Care (Perawatan Rumah)", image: "image/top 10 produk/3. SUNLIGHT 610GR.jpg" },
-  { name: "SIRUP MARJAN COCO PANDAN 460ML", sales: "5,094", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/4. SIRUP MARJAN COCO PANDAN 460ML.jpg" },
-  { name: "NESCAFE KIT KAT RTD LATTE 24x220ML", sales: "3,300", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/5. NESCAFE KIT KAT RTD LATTE 24x220ML.jpg" },
-  { name: "MEDICARE BAR SOAP LIGHT BLUE 80GR", sales: "3,300", category: "Personal Care (Perawatan Tubuh)", image: "image/top 10 produk/6. MEDICARE BAR SOAP LIGHT BLUE 80GR KIT KAT RTD LATTE 24x220ML.jpg" },
-  { name: "OATSIDE OAT MILK BARISTA BLEND 6x1000ML", sales: "3,200", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/7. OATSIDE OAT MILK BARISTA BLEND 6x1000ML.jpg" },
-  { name: "OATSIDE BARISTA 6 x 1000ML", sales: "2,864", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/8. OATSIDE BARISTA 6 x 1000ML.jpg" },
-  { name: "SIRUP MARJAN MELON 460ML", sales: "2,750", category: "Beverages & Drinks (Minuman)", image: "image/top 10 produk/9. OATSIDE BARISTA 6 x 1000ML.jpg" },
-  { name: "OREO ROLL ORIGINAL 119,6GR", sales: "2,500", category: "Snacks & Confectioneries (Camilan)", image: "image/top 10 produk/10. OREO ROLL ORIGINAL 119,6GR.jpg" }
-];
+function generateStarsHTML(rating) {
+  let stars = "";
+  const fullStars = Math.floor(rating);
+  const hasHalf = rating % 1 >= 0.5;
+  for (let i = 1; i <= 5; i++) {
+    if (i <= fullStars) {
+      stars += `<i class="fas fa-star" style="color: #3f3d91 !important;"></i>`;
+    } else if (i === fullStars + 1 && hasHalf) {
+      stars += `<i class="fas fa-star-half-alt" style="color: #3f3d91 !important;"></i>`;
+    } else {
+      stars += `<i class="far fa-star" style="color: #3f3d91 !important;"></i>`;
+    }
+  }
+  return stars;
+}
 
 function renderBestSellers() {
   const container = document.getElementById("best-seller-display");
   if (!container) return;
 
-  container.innerHTML = bestSellingProducts
+  const bestSellers = allProducts.filter(p => p.isBestSeller);
+
+  container.innerHTML = bestSellers
     .map(
       (p, index) => `
     <div class="best-seller-card">
@@ -249,15 +259,11 @@ function renderBestSellers() {
         <span class="bs-cat">${p.category}</span>
         <h4>${p.name}</h4>
         <div class="star-rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <span class="review-count">(1k+)</span>
+          ${generateStarsHTML(p.rating)}
+          <span class="review-count">(${p.reviewCount})</span>
         </div>
         <div class="bs-stats">
-          Export Choice
+          <i class="fas fa-chart-line"></i> Export Choice (${p.sales} Sales)
         </div>
       </div>
     </div>
@@ -304,12 +310,8 @@ function renderProducts() {
         <span class="cat-label">${p.category}</span>
         <h4>${p.name}</h4>
         <div class="star-rating">
-          <i class="fas fa-star" style="color: #3f3d91 !important;"></i>
-          <i class="fas fa-star" style="color: #3f3d91 !important;"></i>
-          <i class="fas fa-star" style="color: #3f3d91 !important;"></i>
-          <i class="fas fa-star" style="color: #3f3d91 !important;"></i>
-          <i class="fas fa-star-half-alt" style="color: #3f3d91 !important;"></i>
-          <span class="review-count">(120)</span>
+          ${generateStarsHTML(p.rating)}
+          <span class="review-count">(${p.reviewCount})</span>
         </div>
         <div style="margin-top: auto; padding-top: 15px;">
            <span style="font-size: 0.85rem; padding: 6px 15px; border: 1px solid #edf2f7; border-radius: 50px; color: #3f3d91; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#3f3d91'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#3f3d91'">View Details</span>

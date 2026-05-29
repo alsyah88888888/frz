@@ -450,7 +450,7 @@ body {
   font-size: 1rem;
   color: #555555;
   line-height: 1.6;
-  font-weight: normal;
+  font-weight: 200; /* extra light */
   /* Menghilangkan bold pada highlight-text */
 }
 
@@ -488,6 +488,7 @@ body {
   color: #444;
   margin-bottom: 30px;
   text-align: justify;
+  font-weight: 200; /* extra light */
 }
 
 /* ===== CATEGORIES SECTION ===== */
@@ -529,6 +530,7 @@ body {
   color: #666;
   line-height: 1.8;
   text-align: justify;
+  font-weight: 200; /* extra light */
 }
 
 .underline {

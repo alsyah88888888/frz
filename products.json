@@ -3,144 +3,240 @@
     "id": 1,
     "name": "Kit Kat Chocolate Drink Can",
     "category": "Beverages",
-    "image": "image/products/1. KIT KAT CHOCOLATE DRINK CAN 24 X 220ML.jpg"
+    "image": "image/products/1. KIT KAT CHOCOLATE DRINK CAN 24 X 220ML.jpg",
+    "isBestSeller": true,
+    "sales": "18,345",
+    "rating": 4.5,
+    "reviewCount": 120
   },
   {
     "id": 2,
     "name": "Oreo Roll Vanilla",
     "category": "Snacks",
-    "image": "image/products/2. OREO ROLL VANILA 110,4 GR.jpg"
+    "image": "image/products/2. OREO ROLL VANILA 110,4 GR.jpg",
+    "isBestSeller": true,
+    "sales": "7,010",
+    "rating": 4.8,
+    "reviewCount": 98
   },
   {
     "id": 3,
     "name": "Sunlight Dishwash",
     "category": "Home Care",
-    "image": "image/products/3. SUNLIGHT 610GR.jpg"
+    "image": "image/products/3. SUNLIGHT 610GR.jpg",
+    "isBestSeller": true,
+    "sales": "6,600",
+    "rating": 4.6,
+    "reviewCount": 150
   },
   {
     "id": 4,
     "name": "Sirup Marjan Coco Pandan",
     "category": "Beverages",
-    "image": "image/products/4. SIRUP MARJAN COCO PANDAN 460ML.jpg"
+    "image": "image/products/4. SIRUP MARJAN COCO PANDAN 460ML.jpg",
+    "isBestSeller": true,
+    "sales": "5,094",
+    "rating": 4.7,
+    "reviewCount": 210
   },
   {
     "id": 5,
     "name": "Nescafe Kit Kat RTD Latte",
     "category": "Beverages",
-    "image": "image/products/5. NESCAFE KIT KAT RTD LATTE 24x220ML.jpg"
+    "image": "image/products/5. NESCAFE KIT KAT RTD LATTE 24x220ML.jpg",
+    "isBestSeller": true,
+    "sales": "3,300",
+    "rating": 4.4,
+    "reviewCount": 85
   },
   {
     "id": 6,
     "name": "Medicare Bar Soap Light Blue",
     "category": "Personal Care",
-    "image": "image/products/6. MEDICARE BAR SOAP LIGHT BLUE 80GR KIT KAT RTD LATTE 24x220ML.jpg"
+    "image": "image/products/6. MEDICARE BAR SOAP LIGHT BLUE 80GR KIT KAT RTD LATTE 24x220ML.jpg",
+    "isBestSeller": true,
+    "sales": "3,300",
+    "rating": 4.3,
+    "reviewCount": 64
   },
   {
     "id": 7,
     "name": "Oatside Oat Milk Barista Blend",
     "category": "Beverages",
-    "image": "image/products/7. OATSIDE OAT MILK BARISTA BLEND 6x1000ML.jpg"
+    "image": "image/products/7. OATSIDE OAT MILK BARISTA BLEND 6x1000ML.jpg",
+    "isBestSeller": true,
+    "sales": "3,200",
+    "rating": 4.9,
+    "reviewCount": 320
   },
   {
     "id": 8,
     "name": "Oatside Barista",
     "category": "Beverages",
-    "image": "image/products/8. OATSIDE BARISTA 6 x 1000ML.jpg"
+    "image": "image/products/8. OATSIDE BARISTA 6 x 1000ML.jpg",
+    "isBestSeller": true,
+    "sales": "2,864",
+    "rating": 4.8,
+    "reviewCount": 175
   },
   {
     "id": 9,
     "name": "Oatside Barista (Alternative)",
     "category": "Beverages",
-    "image": "image/products/9. OATSIDE BARISTA 6 x 1000ML.jpg"
+    "image": "image/products/9. OATSIDE BARISTA 6 x 1000ML.jpg",
+    "isBestSeller": true,
+    "sales": "2,750",
+    "rating": 4.7,
+    "reviewCount": 140
   },
   {
     "id": 10,
     "name": "Oreo Roll Original",
     "category": "Snacks",
-    "image": "image/products/10. OREO ROLL ORIGINAL 119,6GR.jpg"
+    "image": "image/products/10. OREO ROLL ORIGINAL 119,6GR.jpg",
+    "isBestSeller": true,
+    "sales": "2,500",
+    "rating": 4.6,
+    "reviewCount": 190
   },
   {
     "id": 11,
     "name": "So Good Vanilla Soy",
     "category": "Beverages",
-    "image": "image/products/11. SO GOOD VANILLA SOY SMOOTH & CREAMY.jpg"
+    "image": "image/products/11. SO GOOD VANILLA SOY SMOOTH & CREAMY.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.5,
+    "reviewCount": 45
   },
   {
     "id": 12,
     "name": "Original Chilli Sauce",
     "category": "Sauce",
-    "image": "image/products/12. ORIGINAL CHILLI SAUCE.jpg"
+    "image": "image/products/12. ORIGINAL CHILLI SAUCE.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.6,
+    "reviewCount": 32
   },
   {
     "id": 13,
     "name": "Original Tomato Sauce",
     "category": "Sauce",
-    "image": "image/products/12. ORIGINAL TOMATO SAUCE.jpg"
+    "image": "image/products/12. ORIGINAL TOMATO SAUCE.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.4,
+    "reviewCount": 28
   },
   {
     "id": 14,
     "name": "Original Sweet Soy",
     "category": "Sauce",
-    "image": "image/products/14. ORIGINAL SWEET SOY.jpg"
+    "image": "image/products/14. ORIGINAL SWEET SOY.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.7,
+    "reviewCount": 52
   },
   {
     "id": 15,
     "name": "Banana Chips",
     "category": "Snacks",
-    "image": "image/products/15. BANANA CHIPS.jpg"
+    "image": "image/products/15. BANANA CHIPS.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.5,
+    "reviewCount": 19
   },
   {
     "id": 16,
     "name": "Almond Milk",
     "category": "Beverages",
-    "image": "image/products/16. ALMOND MILLK.jpg"
+    "image": "image/products/16. ALMOND MILLK.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.6,
+    "reviewCount": 40
   },
   {
     "id": 17,
     "name": "Tao Kae Noi Seaweed",
     "category": "Snacks",
-    "image": "image/products/17. TAE KAE NOI.jpg"
+    "image": "image/products/17. TAE KAE NOI.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.8,
+    "reviewCount": 88
   },
   {
     "id": 18,
     "name": "Excelso Classic",
     "category": "Coffee",
-    "image": "image/products/18. EXCELSO CLASSIC.jpg"
+    "image": "image/products/18. EXCELSO CLASSIC.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.7,
+    "reviewCount": 65
   },
   {
     "id": 19,
     "name": "Excelso Arabica Gold",
     "category": "Coffee",
-    "image": "image/products/19. EXCELSO ARABICA GOLD.jpg"
+    "image": "image/products/19. EXCELSO ARABICA GOLD.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.8,
+    "reviewCount": 74
   },
   {
     "id": 20,
     "name": "GIV White Skin Care Body Wash",
     "category": "Personal Care",
-    "image": "image/products/20. GIV WHITE SKIN CARE BODY WASH.jpg"
+    "image": "image/products/20. GIV WHITE SKIN CARE BODY WASH.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.5,
+    "reviewCount": 41
   },
   {
     "id": 21,
     "name": "My Baby Hair & Body Wash",
     "category": "Baby Care",
-    "image": "image/products/21. MY BABY HAIR & BODY WASH.jpg"
+    "image": "image/products/21. MY BABY HAIR & BODY WASH.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.9,
+    "reviewCount": 112
   },
   {
     "id": 22,
     "name": "Sriracha Sauce",
     "category": "Sauce",
-    "image": "image/products/22. Sriracha Sauce.jpg"
+    "image": "image/products/22. Sriracha Sauce.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.6,
+    "reviewCount": 55
   },
   {
     "id": 23,
     "name": "Muesli Cereal Kellogg's",
     "category": "Cereal",
-    "image": "image/products/23. Muesli Cereal KELLOGG'S.jpg"
+    "image": "image/products/23. Muesli Cereal KELLOGG'S.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.5,
+    "reviewCount": 30
   },
   {
     "id": 24,
     "name": "Mama Lemon",
     "category": "Home Care",
-    "image": "image/products/24. MAMA LEMON.jpg"
+    "image": "image/products/24. MAMA LEMON.jpg",
+    "isBestSeller": false,
+    "sales": "0",
+    "rating": 4.6,
+    "reviewCount": 71
   }
 ]
