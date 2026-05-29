@@ -1525,7 +1525,7 @@ input[type="checkbox"] {
     display: none !important;
   }
 
-  .btn-close-drawer,
+  .drawer-header,
   .drawer-footer {
     display: none !important;
   }
