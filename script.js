@@ -260,10 +260,6 @@ function renderBestSellers() {
         <h4>${p.name}</h4>
         <div class="star-rating">
           ${generateStarsHTML(p.rating)}
-          <span class="review-count">(${p.reviewCount})</span>
-        </div>
-        <div class="bs-stats">
-          <i class="fas fa-chart-line"></i> Export Choice (${p.sales} Sales)
         </div>
       </div>
     </div>
