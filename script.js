@@ -546,11 +546,20 @@ function printCatalog() {
     return;
   }
 
+  // Show a loading feedback on the print button
+  const printBtn = document.getElementById("print-catalog-btn");
+  let originalBtnContent = "";
+  if (printBtn) {
+    originalBtnContent = printBtn.innerHTML;
+    printBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menyiapkan...';
+    printBtn.disabled = true;
+  }
+
   const cardsHTML = currentFilteredProducts
     .map(p => `
       <div class="print-card">
         <div class="print-card-img">
-          <img src="${p.image}" alt="${p.name}" onerror="this.src='https://placehold.co/100?text=Product'">
+          <img src="${p.image}" alt="${p.name}" class="print-img-item" onerror="this.src='https://placehold.co/100?text=Product'">
         </div>
         <div class="print-card-info">
           <span class="print-card-cat">${p.category}</span>
@@ -578,6 +587,43 @@ function printCatalog() {
     </div>
   `;
 
-  window.print();
+  // Wait for all images in the print section to load before triggering print dialog
+  const images = printSection.querySelectorAll(".print-img-item");
+  let loadedCount = 0;
+  const totalImages = images.length;
+
+  if (totalImages === 0) {
+    triggerPrint();
+  } else {
+    // Timeout fallback after 5 seconds
+    const timeout = setTimeout(triggerPrint, 5000);
+
+    images.forEach(img => {
+      if (img.complete) {
+        imageLoaded();
+      } else {
+        img.onload = imageLoaded;
+        img.onerror = imageLoaded; // count as loaded even if it fails
+      }
+    });
+
+    function imageLoaded() {
+      loadedCount++;
+      if (loadedCount >= totalImages) {
+        clearTimeout(timeout);
+        triggerPrint();
+      }
+    }
+  }
+
+  function triggerPrint() {
+    // Restore button state
+    if (printBtn) {
+      printBtn.innerHTML = originalBtnContent;
+      printBtn.disabled = false;
+    }
+    // Open print dialog
+    window.print();
+  }
 }
 
