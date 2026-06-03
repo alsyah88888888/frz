@@ -199,8 +199,17 @@ document.addEventListener("DOMContentLoaded", function () {
     printBtn.addEventListener("click", printCatalog);
   }
 
-  // --- 7. PRODUCT DETAIL MODAL EVENT DELEGATION ---
+  // --- 7. PRODUCT DETAIL MODAL EVENT DELEGATION & DIRECT WHATSAPP INQUIRY ---
   document.addEventListener("click", function (e) {
+    const waBtn = e.target.closest(".card-btn[data-action='whatsapp']");
+    if (waBtn) {
+      e.stopPropagation();
+      const productName = waBtn.getAttribute("data-name");
+      const url = `https://wa.me/6281234567890?text=${encodeURIComponent('Halo Fortune Reef Zona, saya tertarik dengan produk ' + productName + '. Bisa minta info harga grosirnya?')}`;
+      window.open(url, '_blank');
+      return;
+    }
+
     const productCard = e.target.closest(".product-list-item, .best-seller-card");
     if (!productCard) return;
 
@@ -319,15 +328,16 @@ function renderBestSellers() {
               <div class="top-badge">Top #${rank}</div>
               <div class="bs-img">
                 <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Product'">
-                <button class="quick-shop" title="Quick Shop">
-                  <i class="fas fa-shopping-bag"></i>
-                </button>
+                <div class="hover-overlay">
+                  <span class="hover-overlay-btn"><i class="fas fa-eye"></i> Detail</span>
+                </div>
               </div>
               <div class="bs-info">
                 <span class="bs-cat">${p.category}</span>
                 <h4>${p.name}</h4>
-                <div class="star-rating">
-                  ${generateStarsHTML(p.rating)}
+                <div class="card-footer">
+                  <span class="price-badge">Wholesale</span>
+                  <button class="card-btn" data-action="whatsapp" data-name="${p.name}"><i class="fab fa-whatsapp"></i> Tanya</button>
                 </div>
               </div>
             </div>
@@ -368,13 +378,17 @@ function renderProducts() {
     <div class="product-list-item" data-id="${p.id}">
       <div class="item-img">
         <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Product'">
-        <button class="quick-shop" title="Quick Shop">
-          <i class="fas fa-shopping-bag"></i>
-        </button>
+        <div class="hover-overlay">
+          <span class="hover-overlay-btn"><i class="fas fa-eye"></i> Detail</span>
+        </div>
       </div>
       <div class="item-info">
         <span class="cat-label">${p.category}</span>
         <h4>${p.name}</h4>
+        <div class="card-footer">
+          <span class="price-badge">Wholesale</span>
+          <button class="card-btn" data-action="whatsapp" data-name="${p.name}"><i class="fab fa-whatsapp"></i> Tanya</button>
+        </div>
       </div>
     </div>
   `,
