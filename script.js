@@ -546,17 +546,9 @@ function printCatalog() {
     return;
   }
 
-  // Get active categories names for metadata
-  const currentCheckboxes = document.querySelectorAll(".category-checkbox");
-  const activeCats = Array.from(currentCheckboxes)
-    .filter((i) => i.checked)
-    .map((i) => i.value);
-  const categoriesText = activeCats.length === 0 ? "Semua Kategori" : activeCats.join(", ");
-
   const cardsHTML = currentFilteredProducts
     .map(p => `
       <div class="print-card">
-        <span class="print-product-id">ID: #${String(p.id).padStart(4, '0')}</span>
         <div class="print-card-img">
           <img src="${p.image}" alt="${p.name}" onerror="this.src='https://placehold.co/100?text=Product'">
         </div>
@@ -579,11 +571,6 @@ function printCatalog() {
           <p>Citra Grand Cibubur CBD Ruko Marquette AR1 No. 27, Bekasi</p>
           <p>Email: fortunereefzona@gmail.com</p>
         </div>
-      </div>
-      <div class="print-header-bottom">
-        <span class="print-meta-item"><strong>Filter Kategori:</strong> ${categoriesText}</span>
-        <span class="print-meta-item"><strong>Jumlah Item:</strong> ${currentFilteredProducts.length} Produk</span>
-        <span class="print-meta-item"><strong>Tanggal Cetak:</strong> ${new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
       </div>
     </div>
     <div class="print-grid">
