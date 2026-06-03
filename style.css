@@ -1972,71 +1972,132 @@ input[type="checkbox"] {
     top: 0;
     width: 100%;
     background: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
   }
   
   /* Halaman A4 Setup */
   @page {
     size: A4;
-    margin: 1.5cm;
+    margin: 1.2cm 1.5cm 1.5cm;
   }
   
-  /* Header Katalog */
+  /* Header Katalog Premium */
   .print-header {
-    text-align: center;
-    margin-bottom: 30px;
-    border-bottom: 2px solid #333;
-    padding-bottom: 15px;
+    display: flex !important;
+    flex-direction: column !important;
+    border-bottom: 3px solid #3f3d91;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
   
-  .print-header img {
-    height: 50px;
-    margin-bottom: 10px;
+  .print-header-top {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 12px;
   }
   
-  .print-header h1 {
-    font-size: 22px;
-    color: #3f3d91;
-    margin: 0;
-    text-transform: uppercase;
+  .print-logo-box {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px;
   }
   
-  .print-header p {
-    font-size: 11px;
-    color: #666;
-    margin: 5px 0 0;
+  .print-logo-box img {
+    height: 50px !important;
+    width: auto !important;
   }
   
-  /* Grid Cetak 4 Kolom */
+  .print-logo-box h2 {
+    font-size: 24px !important;
+    color: #3f3d91 !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+  }
+  
+  .print-header-details {
+    text-align: right !important;
+    font-size: 9px !important;
+    color: #4a5568 !important;
+    line-height: 1.4 !important;
+  }
+  
+  .print-header-details p {
+    margin: 0 !important;
+  }
+  
+  .print-subtitle {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #333 !important;
+    margin-bottom: 2px !important;
+  }
+  
+  /* Metadata Cetak (Informasi Filter) */
+  .print-header-bottom {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    background: #f7fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 8px 15px !important;
+    border-radius: 8px !important;
+    font-size: 9px !important;
+    color: #4a5568 !important;
+  }
+  
+  .print-meta-item strong {
+    color: #1a202c !important;
+  }
+  
+  /* Grid Cetak 4 Kolom Rapi */
   .print-grid {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 15px !important;
+    gap: 20px 15px !important;
     width: 100% !important;
   }
   
-  /* Kartu Cetak */
+  /* Kartu Produk Cetak Premium */
   .print-card {
     background: #fff !important;
-    border: 1px solid #ddd !important;
-    border-radius: 8px !important;
-    padding: 10px !important;
-    text-align: center !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 12px !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: space-between !important;
+    position: relative !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
-    height: 190px !important;
+    height: 220px !important;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+  
+  .print-product-id {
+    position: absolute !important;
+    top: 8px !important;
+    left: 10px !important;
+    font-size: 8px !important;
+    font-weight: 700 !important;
+    color: #a0aec0 !important;
   }
   
   .print-card-img {
-    height: 90px !important;
-    width: 90px !important;
+    height: 100px !important;
+    width: 100% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    margin-bottom: 8px !important;
+    margin-top: 10px !important;
+    margin-bottom: 12px !important;
   }
   
   .print-card-img img {
@@ -2047,28 +2108,33 @@ input[type="checkbox"] {
   
   .print-card-info {
     width: 100% !important;
+    text-align: center !important;
   }
   
   .print-card-cat {
-    font-size: 8px !important;
-    color: #666 !important;
+    font-size: 7px !important;
+    color: #3f3d91 !important;
+    background: #eef2f7 !important;
+    border-radius: 4px !important;
+    padding: 2px 6px !important;
     text-transform: uppercase !important;
-    font-weight: bold !important;
-    display: block !important;
-    margin-bottom: 4px !important;
+    font-weight: 800 !important;
+    display: inline-block !important;
+    margin-bottom: 6px !important;
+    letter-spacing: 0.5px !important;
   }
   
   .print-card-name {
     font-size: 10px !important;
-    color: #111 !important;
+    color: #1a202c !important;
     font-weight: 700 !important;
     margin: 0 !important;
-    line-height: 1.3 !important;
+    line-height: 1.4 !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 3 !important;
     line-clamp: 3 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
-    height: 38px !important;
+    height: 42px !important;
   }
 }
