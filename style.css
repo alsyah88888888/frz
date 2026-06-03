@@ -1739,3 +1739,335 @@ input[type="checkbox"] {
   padding: 0 30px !important;
   flex: 1 !important;
 }
+
+/* ===== CETAK KATALOG BUTTON ===== */
+.btn-print {
+  background: #3f3d91 !important;
+  color: #fff !important;
+  border-color: #3f3d91 !important;
+}
+.btn-print:hover {
+  background: #2e2c7a !important;
+  box-shadow: 0 4px 12px rgba(63, 61, 145, 0.2) !important;
+}
+
+/* ===== MODAL DETAIL PRODUK (GLASSMORPHISM) ===== */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: 20px;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-container {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+  transform: translateY(30px) scale(0.95);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-backdrop.active .modal-container {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: #3f3d91;
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.modal-image-col {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  border-right: 1px solid #edf2f7;
+}
+
+.modal-image-col img {
+  max-width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05));
+}
+
+.modal-info-col {
+  flex: 1.2;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-info-col .modal-cat {
+  font-size: 0.85rem;
+  color: #3f3d91;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.modal-info-col h3 {
+  font-size: 1.8rem;
+  color: #1a202c;
+  font-weight: 800;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.modal-info-col .modal-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.modal-info-col .modal-stars {
+  color: #ffc107;
+  font-size: 0.95rem;
+}
+
+.modal-info-col .modal-reviews {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.modal-info-col .modal-desc {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-inquiry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: #fff;
+}
+.btn-whatsapp:hover {
+  background: #20ba5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(37, 211, 102, 0.2);
+}
+
+.btn-email {
+  background: #3f3d91;
+  color: #fff;
+}
+.btn-email:hover {
+  background: #2e2c7a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(63, 61, 145, 0.2);
+}
+
+/* Responsivitas Modal */
+@media (max-width: 768px) {
+  .modal-container {
+    flex-direction: column;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .modal-image-col {
+    padding: 30px;
+    border-right: none;
+    border-bottom: 1px solid #edf2f7;
+  }
+  .modal-info-col {
+    padding: 30px;
+  }
+  .modal-info-col h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+#print-section {
+  display: none;
+}
+
+@media print {
+  /* Sembunyikan elemen bawaan */
+  body * {
+    visibility: hidden;
+  }
+  
+  /* Tampilkan hanya area cetak khusus */
+  #print-section, #print-section * {
+    visibility: visible;
+  }
+  
+  #print-section {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #fff;
+  }
+  
+  /* Halaman A4 Setup */
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+  
+  /* Header Katalog */
+  .print-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 15px;
+  }
+  
+  .print-header img {
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .print-header h1 {
+    font-size: 22px;
+    color: #3f3d91;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  
+  .print-header p {
+    font-size: 11px;
+    color: #666;
+    margin: 5px 0 0;
+  }
+  
+  /* Grid Cetak 4 Kolom */
+  .print-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 15px !important;
+    width: 100% !important;
+  }
+  
+  /* Kartu Cetak */
+  .print-card {
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    height: 190px !important;
+  }
+  
+  .print-card-img {
+    height: 90px !important;
+    width: 90px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .print-card-img img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+  }
+  
+  .print-card-info {
+    width: 100% !important;
+  }
+  
+  .print-card-cat {
+    font-size: 8px !important;
+    color: #666 !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+    display: block !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .print-card-name {
+    font-size: 10px !important;
+    color: #111 !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    line-height: 1.3 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    height: 38px !important;
+  }
+}

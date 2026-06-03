@@ -100,9 +100,14 @@
         <section class="product-listing">
           <!-- Filter Toggle Button -->
           <div class="header-actions">
-            <button id="filter-toggle" class="btn-filter">
-              <i class="fas fa-sliders-h"></i> Filters & Sort
-            </button>
+            <div style="display: flex; gap: 10px;">
+              <button id="filter-toggle" class="btn-filter">
+                <i class="fas fa-sliders-h"></i> Filters & Sort
+              </button>
+              <button id="print-catalog-btn" class="btn-filter btn-print">
+                <i class="fas fa-print"></i> Cetak Katalog
+              </button>
+            </div>
             <div class="listing-header">
               <span id="product-counter">Loading products...</span>
               <div class="view-options">
@@ -145,6 +150,12 @@
     </main>
 
     <footer id="main-footer" class="main-footer"></footer>
+
+    <!-- Modal Detail Produk -->
+    <div id="product-detail-modal" class="modal-backdrop"></div>
+
+    <!-- Section Cetak Khusus (Hanya untuk Print/PDF) -->
+    <div id="print-section" class="print-only"></div>
 
     <script src="script.js"></script>
   </body>

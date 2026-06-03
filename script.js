@@ -3,7 +3,7 @@
  */
 
 let allProducts = [];
-let displayedCount = 10;
+let displayedCount = 24;
 let currentFilteredProducts = [];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -40,10 +40,37 @@ document.addEventListener("DOMContentLoaded", function () {
         currentFilteredProducts = [...allProducts];
         if (productDisplay) {
           buildCategoryFilters();
-          renderProducts();
-        }
-        if (bestSellerDisplay) {
-          renderBestSellers();
+
+          // --- READ URL PARAMS ON LOAD ---
+          const urlParams = new URLSearchParams(window.location.search);
+          const searchParam = urlParams.get("search");
+          const categoriesParam = urlParams.get("categories");
+
+          if (searchParam && searchInput) {
+            searchInput.value = searchParam;
+          }
+
+          if (categoriesParam) {
+            const activeCats = categoriesParam.split(",").filter(Boolean);
+            const checkboxes = document.querySelectorAll(".category-checkbox");
+            checkboxes.forEach(box => {
+              if (activeCats.includes(box.value)) {
+                box.checked = true;
+              }
+            });
+            // Update "All Categories" parent checkbox
+            const parentCheckbox = document.getElementById("all-cats");
+            if (parentCheckbox) {
+              const allChecked = Array.from(checkboxes).every(b => b.checked);
+              parentCheckbox.checked = allChecked;
+            }
+          }
+
+          applyFilters(); // Applies filters read from URL
+        } else {
+          if (bestSellerDisplay) {
+            renderBestSellers();
+          }
         }
       })
       .catch((err) => {
@@ -123,8 +150,23 @@ document.addEventListener("DOMContentLoaded", function () {
       return matchSearch && matchCat;
     });
 
-    displayedCount = 10;
+    displayedCount = 24;
     renderProducts();
+    renderBestSellers(); // Update Best Sellers list along with the catalog
+
+    // --- UPDATE URL PARAMS ---
+    const url = new URL(window.location.href);
+    if (searchText) {
+      url.searchParams.set("search", searchText);
+    } else {
+      url.searchParams.delete("search");
+    }
+    if (activeCats.length > 0) {
+      url.searchParams.set("categories", activeCats.join(","));
+    } else {
+      url.searchParams.delete("categories");
+    }
+    window.history.pushState({}, "", url);
   }
 
   // Event Listeners
@@ -146,10 +188,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const loadMoreBtn = document.getElementById("load-more-btn");
   if (loadMoreBtn) {
     loadMoreBtn.addEventListener("click", () => {
-      displayedCount += 10;
+      displayedCount += 24;
       renderProducts();
     });
   }
+
+  // --- 6. PRINT CATALOG LOGIC ---
+  const printBtn = document.getElementById("print-catalog-btn");
+  if (printBtn) {
+    printBtn.addEventListener("click", printCatalog);
+  }
+
+  // --- 7. PRODUCT DETAIL MODAL EVENT DELEGATION ---
+  document.addEventListener("click", function (e) {
+    const productCard = e.target.closest(".product-list-item, .best-seller-card");
+    if (!productCard) return;
+
+    const productId = productCard.getAttribute("data-id");
+    if (productId) {
+      openProductDetail(parseInt(productId));
+    }
+  });
 
   // --- 5. DRAWER LOGIC ---
   const drawer = document.getElementById("sidebar-drawer");
@@ -240,32 +299,43 @@ function generateStarsHTML(rating) {
 
 function renderBestSellers() {
   const container = document.getElementById("best-seller-display");
+  const section = document.querySelector(".best-seller-section");
   if (!container) return;
 
-  const bestSellers = allProducts.filter(p => p.isBestSeller);
+  const bestSellers = currentFilteredProducts.filter(p => p.isBestSeller);
+  const allBestSellers = allProducts.filter(p => p.isBestSeller);
 
-  container.innerHTML = bestSellers
-    .map(
-      (p, index) => `
-    <div class="best-seller-card">
-      <div class="top-badge">Top #${index + 1}</div>
-      <div class="bs-img">
-        <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Product'">
-        <button class="quick-shop" title="Quick Shop">
-          <i class="fas fa-shopping-bag"></i>
-        </button>
-      </div>
-      <div class="bs-info">
-        <span class="bs-cat">${p.category}</span>
-        <h4>${p.name}</h4>
-        <div class="star-rating">
-          ${generateStarsHTML(p.rating)}
-        </div>
-      </div>
-    </div>
-  `
-    )
-    .join("");
+  if (bestSellers.length === 0) {
+    if (section) section.style.display = "none";
+    container.innerHTML = "";
+  } else {
+    if (section) section.style.display = "block";
+    container.innerHTML = bestSellers
+      .map(
+        (p) => {
+          const rank = allBestSellers.findIndex(bp => bp.id === p.id) + 1;
+          return `
+            <div class="best-seller-card" data-id="${p.id}">
+              <div class="top-badge">Top #${rank}</div>
+              <div class="bs-img">
+                <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Product'">
+                <button class="quick-shop" title="Quick Shop">
+                  <i class="fas fa-shopping-bag"></i>
+                </button>
+              </div>
+              <div class="bs-info">
+                <span class="bs-cat">${p.category}</span>
+                <h4>${p.name}</h4>
+                <div class="star-rating">
+                  ${generateStarsHTML(p.rating)}
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      )
+      .join("");
+  }
 }
 
 function renderProducts() {
@@ -295,7 +365,7 @@ function renderProducts() {
   container.innerHTML = toShow
     .map(
       (p) => `
-    <div class="product-list-item">
+    <div class="product-list-item" data-id="${p.id}">
       <div class="item-img">
         <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Product'">
         <button class="quick-shop" title="Quick Shop">
@@ -406,5 +476,101 @@ function initCounters() {
     { threshold: 0.7 },
   );
   document.querySelectorAll(".counter").forEach((c) => observer.observe(c));
+}
+
+// --- 8. PRODUCT DETAIL MODAL & PRINT FUNCTIONS ---
+function openProductDetail(id) {
+  const product = allProducts.find(p => p.id === id);
+  if (!product) return;
+
+  const modal = document.getElementById("product-detail-modal");
+  if (!modal) return;
+
+  modal.innerHTML = `
+    <div class="modal-container">
+      <button class="modal-close" id="close-detail-modal">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="modal-image-col">
+        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://placehold.co/400x500?text=Product'">
+      </div>
+      <div class="modal-info-col">
+        <span class="modal-cat">${product.category}</span>
+        <h3>${product.name}</h3>
+        <div class="modal-rating">
+          <div class="modal-stars">${generateStarsHTML(product.rating)}</div>
+          <span class="modal-reviews">(${product.reviewCount} ulasan)</span>
+        </div>
+        <p class="modal-desc">
+          Dapatkan produk <strong>${product.name}</strong> dengan harga grosir terbaik untuk distribusi FMCG global. Kami melayani pengiriman cepat tanpa batas minimum order untuk mendukung seluruh skala bisnis Anda secara berkelanjutan.
+        </p>
+        <div class="modal-actions">
+          <a class="btn-inquiry btn-whatsapp" href="https://wa.me/6281234567890?text=${encodeURIComponent('Halo Fortune Reef Zona, saya tertarik dengan produk ' + product.name + '. Bisa minta info harga grosirnya?')}" target="_blank">
+            <i class="fab fa-whatsapp"></i> Hubungi via WhatsApp
+          </a>
+          <a class="btn-inquiry btn-email" href="https://mail.google.com/mail/?view=cm&fs=1&to=fortunereefzona@gmail.com&su=${encodeURIComponent('Inquiry: ' + product.name)}&body=${encodeURIComponent('Halo Fortune Reef Zona,\n\nSaya tertarik untuk membeli produk ' + product.name + ' secara grosir. Tolong berikan penawaran harga terbaik.\n\nTerima kasih.')}" target="_blank">
+            <i class="fas fa-envelope"></i> Kirim Email Inquiry
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  const closeBtn = document.getElementById("close-detail-modal");
+  closeBtn.onclick = closeProductDetail;
+
+  modal.onclick = function (e) {
+    if (e.target === modal) {
+      closeProductDetail();
+    }
+  };
+}
+
+function closeProductDetail() {
+  const modal = document.getElementById("product-detail-modal");
+  if (modal) {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+}
+
+function printCatalog() {
+  const printSection = document.getElementById("print-section");
+  if (!printSection) return;
+
+  if (currentFilteredProducts.length === 0) {
+    alert("Tidak ada produk untuk dicetak.");
+    return;
+  }
+
+  const cardsHTML = currentFilteredProducts
+    .map(p => `
+      <div class="print-card">
+        <div class="print-card-img">
+          <img src="${p.image}" alt="${p.name}" onerror="this.src='https://placehold.co/100?text=Product'">
+        </div>
+        <div class="print-card-info">
+          <span class="print-card-cat">${p.category}</span>
+          <h4 class="print-card-name">${p.name}</h4>
+        </div>
+      </div>
+    `).join("");
+
+  printSection.innerHTML = `
+    <div class="print-header">
+      <img src="image/Logo.png" alt="Logo" onerror="this.style.display='none'">
+      <h1>Fortune Reef Zona</h1>
+      <p>Katalog Produk FMCG Global | Alamat: Citra Grand Cibubur CBD Ruko Marquette AR1 No. 27, Bekasi</p>
+      <p>Kontak: fortunereefzona@gmail.com | Hasil Filter: ${currentFilteredProducts.length} Produk</p>
+    </div>
+    <div class="print-grid">
+      ${cardsHTML}
+    </div>
+  `;
+
+  window.print();
 }
 
