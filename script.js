@@ -335,8 +335,11 @@ function renderBestSellers() {
               <div class="bs-info">
                 <span class="bs-cat">${p.category}</span>
                 <h4>${p.name}</h4>
+                <div class="star-rating" style="margin-bottom: 12px; font-size: 0.8rem; display: flex; align-items: center; gap: 5px;">
+                  ${generateStarsHTML(p.rating)}
+                  <span class="review-count" style="color: #718096; font-size: 0.75rem;">(${p.reviewCount})</span>
+                </div>
                 <div class="card-footer">
-                  <span class="price-badge">Wholesale</span>
                   <button class="card-btn" data-action="whatsapp" data-name="${p.name}"><i class="fab fa-whatsapp"></i> Tanya</button>
                 </div>
               </div>
@@ -385,8 +388,11 @@ function renderProducts() {
       <div class="item-info">
         <span class="cat-label">${p.category}</span>
         <h4>${p.name}</h4>
+        <div class="star-rating" style="margin-bottom: 12px; font-size: 0.8rem; display: flex; align-items: center; gap: 5px;">
+          ${generateStarsHTML(p.rating)}
+          <span class="review-count" style="color: #718096; font-size: 0.75rem;">(${p.reviewCount})</span>
+        </div>
         <div class="card-footer">
-          <span class="price-badge">Wholesale</span>
           <button class="card-btn" data-action="whatsapp" data-name="${p.name}"><i class="fab fa-whatsapp"></i> Tanya</button>
         </div>
       </div>
