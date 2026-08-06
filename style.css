@@ -1795,13 +1795,51 @@ input[type="checkbox"] {
 /* ===== CETAK KATALOG BUTTON ===== */
 .btn-print {
   display: inline-flex !important;
-  background: #3f3d91 !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 8px 24px 8px 8px !important;
+  background: linear-gradient(135deg, #4d4ba8 0%, #3f3d91 55%, #322f7a 100%) !important;
   color: #fff !important;
-  border-color: #3f3d91 !important;
+  border-color: transparent !important;
+  letter-spacing: 0.2px;
+  box-shadow: 0 2px 8px rgba(63, 61, 145, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.35s ease !important;
 }
+
+.btn-print .btn-print-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-print .btn-print-icon i {
+  font-size: 0.8rem;
+}
+
 .btn-print:hover {
-  background: #2e2c7a !important;
-  box-shadow: 0 4px 12px rgba(63, 61, 145, 0.2) !important;
+  background: linear-gradient(135deg, #5b58ba 0%, #47449e 55%, #383588 100%) !important;
+  box-shadow: 0 10px 22px rgba(63, 61, 145, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-2px);
+}
+
+.btn-print:hover .btn-print-icon {
+  transform: rotate(-12deg) scale(1.08);
+}
+
+.btn-print:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 2px 6px rgba(63, 61, 145, 0.3) !important;
+}
+
+.btn-print:focus-visible {
+  outline: 2px solid #8b89d6;
+  outline-offset: 3px;
 }
 
 /* ===== MODAL DETAIL PRODUK (GLASSMORPHISM) ===== */
