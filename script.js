@@ -325,19 +325,17 @@ function renderBestSellers() {
           const rank = allBestSellers.findIndex(bp => bp.id === p.id) + 1;
           return `
             <div class="best-seller-card" data-id="${p.id}">
-              <div class="top-badge">Top #${rank}</div>
+              <div class="top-badge badge-eco">Best Seller</div>
               <div class="bs-img">
                 <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Product'">
-                <div class="hover-overlay">
-                  <span class="hover-overlay-btn"><i class="fas fa-eye"></i> Detail</span>
-                </div>
               </div>
               <div class="bs-info">
                 <span class="bs-cat">${p.category}</span>
                 <h4>${p.name}</h4>
 
                 <div class="card-footer">
-                  <button class="card-btn" data-action="whatsapp" data-name="${p.name}"><i class="fab fa-whatsapp"></i> Tanya</button>
+                  <div class="price-placeholder"></div>
+                  <button class="card-btn-icon" data-action="whatsapp" data-name="${p.name}"><i class="fab fa-whatsapp"></i></button>
                 </div>
               </div>
             </div>
@@ -378,16 +376,14 @@ function renderProducts() {
     <div class="product-list-item" data-id="${p.id}">
       <div class="item-img">
         <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Product'">
-        <div class="hover-overlay">
-          <span class="hover-overlay-btn"><i class="fas fa-eye"></i> Detail</span>
-        </div>
       </div>
       <div class="item-info">
         <span class="cat-label">${p.category}</span>
         <h4>${p.name}</h4>
 
         <div class="card-footer">
-          <button class="card-btn" data-action="whatsapp" data-name="${p.name}"><i class="fab fa-whatsapp"></i> Tanya</button>
+          <div class="price-placeholder"></div>
+          <button class="card-btn-icon" data-action="whatsapp" data-name="${p.name}"><i class="fab fa-whatsapp"></i></button>
         </div>
       </div>
     </div>
