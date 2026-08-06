@@ -565,6 +565,11 @@ body {
   align-items: center;
   margin-bottom: 30px;
   gap: 20px;
+  padding: 12px 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f1f5f9;
 }
 
 .btn-filter {
@@ -816,13 +821,8 @@ input[type="checkbox"] {
 
 .listing-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 35px;
-  padding: 15px 25px;
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  gap: 15px;
   color: #718096;
   font-size: 0.95rem;
 }
