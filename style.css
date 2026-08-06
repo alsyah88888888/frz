@@ -6,7 +6,10 @@
   font-family: "Zalando Sans Expanded", sans-serif;
 }
 
-html,
+html {
+  width: 100%;
+}
+
 body {
   overflow-x: hidden;
   width: 100%;
@@ -1567,6 +1570,7 @@ input[type="checkbox"] {
     max-height: calc(100vh - 140px);
     background: transparent !important;
     box-shadow: none !important;
+    z-index: 1 !important; /* Reset leftover mobile off-canvas z-index (99999) so it never paints over the fixed navbar */
   }
 
   .drawer-backdrop {
