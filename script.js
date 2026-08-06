@@ -575,35 +575,75 @@ function printCatalog() {
     printBtn.disabled = true;
   }
 
-  const cardsHTML = currentFilteredProducts
-    .map(p => `
-      <div class="print-card">
-        <div class="print-card-img">
-          <img src="${p.image}" alt="${p.name}" class="print-img-item" onerror="this.src='https://placehold.co/100?text=Product'">
-        </div>
-        <div class="print-card-info">
-          <span class="print-card-cat">${p.category}</span>
-          <h4 class="print-card-name">${p.name}</h4>
-        </div>
-      </div>
-    `).join("");
+  // Group products by category so the printed catalog reads like a real
+  // wholesale catalog (browsable by section) instead of one flat grid.
+  const groups = new Map();
+  currentFilteredProducts.forEach(p => {
+    const cat = p.category || "Lainnya";
+    if (!groups.has(cat)) groups.set(cat, []);
+    groups.get(cat).push(p);
+  });
+  const sortedCategories = [...groups.keys()].sort();
+
+  const sectionsHTML = sortedCategories
+    .map(cat => {
+      const items = groups.get(cat);
+      const cardsHTML = items
+        .map(p => `
+          <div class="print-card">
+            <span class="print-product-id">No. ${p.id}</span>
+            <div class="print-card-img">
+              <img src="${p.image}" alt="${p.name}" class="print-img-item" onerror="this.src='https://placehold.co/100?text=Product'">
+            </div>
+            <div class="print-card-info">
+              <h4 class="print-card-name">${p.name}</h4>
+            </div>
+          </div>
+        `).join("");
+
+      return `
+        <section class="print-category-section">
+          <div class="print-category-header">
+            <h3>${cat}</h3>
+            <span class="print-category-count">${items.length} produk</span>
+          </div>
+          <div class="print-grid">
+            ${cardsHTML}
+          </div>
+        </section>
+      `;
+    }).join("");
+
+  const generatedDate = new Date().toLocaleDateString("id-ID", {
+    day: "numeric", month: "long", year: "numeric",
+  });
+  const isFiltered = currentFilteredProducts.length !== allProducts.length;
 
   printSection.innerHTML = `
     <div class="print-header">
       <div class="print-header-top">
         <div class="print-logo-box">
           <img src="image/Logo.png" alt="Logo" onerror="this.style.display='none'">
-          <h2>Fortune Reef Zona</h2>
+          <div>
+            <h2>Fortune Reef Zona</h2>
+            <p class="print-subtitle">Global FMCG Distribution &amp; Export</p>
+          </div>
         </div>
         <div class="print-header-details">
-          <p class="print-subtitle">Global FMCG Distribution & Export</p>
           <p>Citra Grand Cibubur CBD Ruko Marquette AR1 No. 27, Bekasi</p>
-          <p>Email: fortunereefzona@gmail.com</p>
+          <p>Email: fortunereefzona@gmail.com &nbsp;|&nbsp; WA: +62 812-3456-7890</p>
         </div>
       </div>
+      <div class="print-header-bottom">
+        <span class="print-meta-item">Katalog Produk ${isFiltered ? "(Terfilter)" : "Lengkap"}</span>
+        <span class="print-meta-item"><strong>${currentFilteredProducts.length}</strong> produk &nbsp;·&nbsp; <strong>${sortedCategories.length}</strong> kategori</span>
+        <span class="print-meta-item">Dicetak: ${generatedDate}</span>
+      </div>
     </div>
-    <div class="print-grid">
-      ${cardsHTML}
+    ${sectionsHTML}
+    <div class="print-footer">
+      <span>Fortune Reef Zona &mdash; Global FMCG Distribution &amp; Export</span>
+      <span>fortunereefzona@gmail.com</span>
     </div>
   `;
 
