@@ -3,17 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Flipbook Catalog - Fortune Reef Zona</title>
+    <title>Katalog Ekspor Digital Flipbook - Fortune Reef Zona</title>
     <link rel="icon" href="image/Logo.png" type="image/png" />
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Katalog Flipbook Digital Interaktif Fortune Reef Zona. Jelajahi 800+ produk FMCG ekspor global dengan pengalaman membalik halaman yang realistis." />
-    <meta name="keywords" content="FMCG flipbook, interactive catalog, Fortune Reef Zona, export catalog, wholesale catalog" />
+    <meta
+      name="description"
+      content="Katalog Flipbook Digital Resmi Fortune Reef Zona. Jelajahi 800+ produk FMCG ekspor global dalam format majalah 2 halaman interaktif dengan efek balik realistis."
+    />
+    <meta
+      name="keywords"
+      content="katalog FMCG, flipbook digital, Fortune Reef Zona, ekspor produk Indonesia, wholesale FMCG"
+    />
     <meta name="author" content="Fortune Reef Zona" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Digital Flipbook Catalog - Fortune Reef Zona" />
-    <meta property="og:description" content="Katalog Ekspor FMCG Fortune Reef Zona dalam format Flipbook Digital 3D Interaktif." />
+    <meta
+      property="og:title"
+      content="Katalog Ekspor Digital Flipbook - Fortune Reef Zona"
+    />
+    <meta
+      property="og:description"
+      content="Pengalaman membaca katalog ekspor FMCG Fortune Reef Zona layaknya majalah fisik berkualitas tinggi."
+    />
     <meta property="og:image" content="image/Logo.png" />
 
     <!-- Stylesheets -->
@@ -26,136 +38,190 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600&display=swap"
       rel="stylesheet"
     />
 
-    <!-- StPageFlip Library -->
+    <!-- StPageFlip Library (Local with CDN Fallback) -->
     <script src="lib/page-flip.browser.js"></script>
     <script>
       if (typeof St === "undefined" || !St.PageFlip) {
-        document.write('<script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"><\/script>');
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"><\/script>'
+        );
       }
     </script>
   </head>
   <body class="flipbook-body">
-    <!-- Main Navbar Component Container -->
-    <div id="main-navbar"></div>
-
-    <!-- Flipbook App Wrapper -->
+    <!-- Flipbook Application Viewport -->
     <div class="flipbook-app" id="flipbook-app">
-      <!-- Top Utility Bar: Category Quick Jump & Search -->
+      <!-- Top Navigation & Utility Bar -->
       <header class="flipbook-topbar">
         <div class="topbar-left">
-          <a href="products.html" class="topbar-btn back-btn" title="Kembali ke Galeri Produk">
-            <i class="fas fa-arrow-left"></i>
+          <a href="index.html" class="brand-header-link" title="Halaman Utama">
+            <img
+              src="image/Logo.png"
+              alt="Fortune Reef Zona Logo"
+              class="brand-logo-img"
+              onerror="this.style.display='none'"
+            />
+            <div class="brand-header-text">
+              <h1>Fortune Reef Zona</h1>
+              <span>Official Export Catalogue</span>
+            </div>
+          </a>
+          <a
+            href="products.html"
+            class="btn-back-grid"
+            title="Beralih ke Tampilan Galeri Biasa"
+          >
+            <i class="fas fa-th"></i>
             <span>Mode Grid</span>
           </a>
-          <div class="topbar-title">
-            <span class="badge-live"><i class="fas fa-book-open"></i> Flipbook Edition</span>
-            <h1>Katalog Produk Ekspor FMCG</h1>
-          </div>
         </div>
 
+        <!-- Center Category Selector -->
         <div class="topbar-center">
-          <!-- Category Quick Jump Menu -->
-          <div class="category-pills" id="category-pills">
-            <button class="pill-btn active" data-cat="all">Semua Kategori</button>
-            <!-- Injected dynamically via JS -->
+          <div class="category-dropdown-wrapper">
+            <button
+              class="category-dropdown-btn"
+              id="category-dropdown-btn"
+              type="button"
+            >
+              <span id="current-category-label">
+                <i class="fas fa-layer-group" style="margin-right: 6px; color: var(--frz-accent);"></i>
+                Semua Kategori (Katalog Lengkap)
+              </span>
+              <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i>
+            </button>
+            <div class="category-dropdown-menu" id="category-dropdown-menu">
+              <!-- Dynamically populated via JS -->
+            </div>
           </div>
         </div>
 
+        <!-- Right Tools: Search, Theme Toggle & TOC -->
         <div class="topbar-right">
-          <!-- Search in Catalog -->
+          <!-- Search Box -->
           <div class="flipbook-search-box">
             <i class="fas fa-search search-icon"></i>
             <input
               type="text"
               id="flipbook-search-input"
-              placeholder="Cari produk di katalog..."
+              placeholder="Cari 800+ produk ekspor..."
               autocomplete="off"
             />
-            <button id="search-clear-btn" class="search-clear" title="Hapus pencarian">
+            <button
+              id="search-clear-btn"
+              class="search-clear"
+              title="Hapus pencarian"
+            >
               <i class="fas fa-times"></i>
             </button>
-            <div id="search-results-counter" class="search-counter"></div>
+
+            <!-- Instant Search Dropdown Popover -->
+            <div class="search-results-dropdown" id="search-results-dropdown">
+              <!-- Dynamically populated via JS -->
+            </div>
           </div>
 
-          <button id="toc-toggle-btn" class="topbar-btn icon-btn" title="Daftar Isi (Table of Contents)">
+          <!-- Light / Dark Theme Switcher -->
+          <button
+            id="btn-theme-toggle"
+            class="btn-theme-toggle"
+            title="Ganti Mode Pencahayaan (Studio Dark / Light)"
+          >
+            <i class="fas fa-sun"></i>
+          </button>
+
+          <!-- Slide-out Table of Contents Button -->
+          <button
+            id="toc-toggle-btn"
+            class="btn-back-grid"
+            title="Buka Daftar Isi Lengkap"
+          >
             <i class="fas fa-list-ul"></i>
             <span>Daftar Isi</span>
           </button>
         </div>
       </header>
 
-      <!-- Main Flipbook Stage -->
+      <!-- Main Flipbook Reading Stage -->
       <main class="flipbook-stage" id="flipbook-stage">
-        <!-- Floating Previous Arrow -->
+        <!-- Human Guidance Hint Banner -->
+        <div class="reader-hint-banner" id="reader-hint">
+          <i class="fas fa-hand-pointer" style="color: var(--frz-accent);"></i>
+          <span>
+            <strong>Tips:</strong> Klik atau tarik sudut lembar buku untuk membalik layaknya majalah fisik, atau gunakan tombol panah keyboard &larr; / &rarr;.
+          </span>
+        </div>
+
+        <!-- Floating Left Stage Arrow -->
         <button
-          class="stage-nav-btn prev-btn"
+          class="stage-arrow-btn prev-btn"
           id="stage-prev-btn"
           aria-label="Halaman Sebelumnya"
-          title="Halaman Sebelumnya (Panah Kiri)"
+          title="Halaman Sebelumnya (&larr;)"
         >
           <i class="fas fa-chevron-left"></i>
         </button>
 
-        <!-- Book Wrapper with 3D Depth & Shadow -->
-        <div class="book-container-wrapper" id="book-container-wrapper">
-          <!-- Loading Indicator -->
+        <!-- Center 3D Book Stage -->
+        <div class="book-stage-center" id="book-stage-center">
+          <!-- Loading Screen -->
           <div class="flipbook-loader" id="flipbook-loader">
             <div class="book-spine-loader">
               <div class="page-loader-leaf"></div>
               <div class="page-loader-leaf"></div>
               <div class="page-loader-leaf"></div>
             </div>
-            <p>Menyiapkan Katalog Flipbook Fortune Reef Zona...</p>
-            <span class="loader-sub">Memuat 800+ produk ekspor...</span>
+            <p style="font-weight: 700; font-size: 1.05rem; margin-top: 14px;">
+              Mempersiapkan Katalog Ekspor Fortune Reef Zona...
+            </p>
+            <span class="loader-sub">Menyusun 800+ produk ke dalam majalah digital...</span>
           </div>
+
+          <!-- Simulated Paper Stack Thickness Edges -->
+          <div class="book-physical-edges"></div>
 
           <!-- StPageFlip Target Container -->
-          <div id="flipbook" class="flipbook">
+          <div id="flipbook">
             <!-- Pages injected dynamically by flipbook.js -->
           </div>
+
+          <!-- Realistic Spine Crease Shadow -->
+          <div class="book-spine-crease"></div>
         </div>
 
-        <!-- Floating Next Arrow -->
+        <!-- Floating Right Stage Arrow -->
         <button
-          class="stage-nav-btn next-btn"
+          class="stage-arrow-btn next-btn"
           id="stage-next-btn"
           aria-label="Halaman Selanjutnya"
-          title="Halaman Selanjutnya (Panah Kanan)"
+          title="Halaman Selanjutnya (&rarr;)"
         >
           <i class="fas fa-chevron-right"></i>
         </button>
       </main>
 
-      <!-- Bottom Floating Control Dock -->
+      <!-- Bottom Floating Controls Dock -->
       <footer class="flipbook-controls-dock" id="flipbook-controls-dock">
-        <!-- Left Dock: Jump to First / Previous -->
-        <div class="dock-section dock-nav">
+        <!-- Navigation Buttons -->
+        <div class="dock-group">
           <button id="btn-first-page" class="dock-btn" title="Halaman Pertama">
             <i class="fas fa-angle-double-left"></i>
           </button>
-          <button id="btn-prev-page" class="dock-btn" title="Halaman Sebelumnya (←)">
+          <button id="btn-prev-page" class="dock-btn" title="Halaman Sebelumnya (&larr;)">
             <i class="fas fa-chevron-left"></i>
           </button>
         </div>
 
-        <!-- Center Dock: Page Number & Slider -->
-        <div class="dock-section dock-center">
-          <div class="page-indicator-wrap">
-            <span class="label">Hal:</span>
-            <input
-              type="number"
-              id="page-jump-input"
-              min="1"
-              max="1"
-              value="1"
-              title="Ketik halaman lalu Enter"
-            />
-            <span class="separator">/</span>
-            <span id="total-pages-label">...</span>
+        <div class="dock-separator"></div>
+
+        <!-- Spread Indicator & Scrubber -->
+        <div class="dock-group">
+          <div class="dock-spread-indicator" id="dock-spread-label">
+            Memuat halaman...
           </div>
           <input
             type="range"
@@ -163,60 +229,77 @@
             min="0"
             max="1"
             value="0"
-            class="page-slider"
+            class="dock-page-slider"
             title="Geser cepat antar halaman"
           />
         </div>
 
-        <!-- Right Dock: Next / Last & Tools -->
-        <div class="dock-section dock-tools">
-          <button id="btn-next-page" class="dock-btn" title="Halaman Selanjutnya (→)">
+        <div class="dock-separator"></div>
+
+        <!-- Next / Tools -->
+        <div class="dock-group">
+          <button id="btn-next-page" class="dock-btn" title="Halaman Selanjutnya (&rarr;)">
             <i class="fas fa-chevron-right"></i>
           </button>
           <button id="btn-last-page" class="dock-btn" title="Halaman Terakhir">
             <i class="fas fa-angle-double-right"></i>
           </button>
 
-          <div class="dock-divider"></div>
+          <div class="dock-separator"></div>
 
-          <!-- Auto Play / Flip Mode -->
-          <button id="btn-autoplay" class="dock-btn" title="Putar Otomatis (Slideshow)">
-            <i class="fas fa-play"></i>
-          </button>
-
-          <!-- Audio Sound Effect Toggle -->
-          <button id="btn-sound" class="dock-btn active" title="Efek Suara Lembar Kertas">
+          <!-- Paper Rustle Sound Effect -->
+          <button
+            id="btn-sound"
+            class="dock-btn active"
+            title="Efek Suara Lembar Kertas Asli"
+          >
             <i class="fas fa-volume-up"></i>
           </button>
 
           <!-- Zoom Toggle -->
-          <button id="btn-zoom" class="dock-btn" title="Perbesar / Zoom Teks (Z)">
+          <button
+            id="btn-zoom"
+            class="dock-btn"
+            title="Perbesar / Zoom Baca Halaman (Z)"
+          >
             <i class="fas fa-search-plus"></i>
           </button>
 
-          <!-- Thumbnails Drawer Toggle -->
-          <button id="btn-thumbnails" class="dock-btn" title="Pratinjau Thumbnail Halaman">
+          <!-- Thumbnails Drawer -->
+          <button
+            id="btn-thumbnails"
+            class="dock-btn"
+            title="Pratinjau Seluruh Lembar Halaman"
+          >
             <i class="fas fa-th-large"></i>
           </button>
 
-          <!-- Print / PDF Catalog -->
-          <button id="btn-print-catalog" class="dock-btn" title="Cetak / Simpan PDF Katalog">
+          <!-- Print / PDF -->
+          <button
+            id="btn-print-catalog"
+            class="dock-btn"
+            title="Format Cetak / PDF Katalog"
+          >
             <i class="fas fa-print"></i>
           </button>
 
-          <!-- Fullscreen Toggle -->
-          <button id="btn-fullscreen" class="dock-btn" title="Layar Penuh (F)">
+          <!-- Fullscreen -->
+          <button
+            id="btn-fullscreen"
+            class="dock-btn"
+            title="Layar Penuh / Fullscreen (F)"
+          >
             <i class="fas fa-expand"></i>
           </button>
         </div>
       </footer>
     </div>
 
-    <!-- Table of Contents (TOC) Slide-out Drawer -->
+    <!-- Table of Contents Slide-out Drawer -->
     <aside class="toc-drawer" id="toc-drawer">
       <div class="toc-header">
         <div class="toc-header-title">
-          <i class="fas fa-book-bookmark"></i>
+          <i class="fas fa-book-bookmark" style="color: var(--frz-accent);"></i>
           <h3>Daftar Isi Katalog</h3>
         </div>
         <button id="toc-close-btn" class="drawer-close-btn" title="Tutup">
@@ -225,7 +308,7 @@
       </div>
       <div class="toc-content">
         <ul class="toc-list" id="toc-list">
-          <!-- Injected via JS -->
+          <!-- Dynamically populated via JS -->
         </ul>
       </div>
     </aside>
@@ -234,24 +317,24 @@
     <!-- Thumbnails Bottom Drawer -->
     <div class="thumbnails-drawer" id="thumbnails-drawer">
       <div class="thumbnails-header">
-        <h4><i class="fas fa-images"></i> Pratinjau Seluruh Halaman</h4>
+        <h4><i class="fas fa-images"></i> Pratinjau Seluruh Halaman Katalog</h4>
         <button id="thumbnails-close-btn" class="drawer-close-btn" title="Tutup">
           <i class="fas fa-times"></i>
         </button>
       </div>
       <div class="thumbnails-scroll" id="thumbnails-scroll">
-        <!-- Injected via JS -->
+        <!-- Dynamically populated via JS -->
       </div>
     </div>
 
-    <!-- Product Quick View Modal -->
+    <!-- Product Quick View & Inquiry Modal -->
     <div class="product-modal" id="product-detail-modal">
       <div class="product-modal-dialog">
         <button class="modal-close-btn" id="modal-close-btn" title="Tutup">
           <i class="fas fa-times"></i>
         </button>
         <div class="product-modal-body" id="product-modal-content">
-          <!-- Injected via JS -->
+          <!-- Dynamically populated via JS -->
         </div>
       </div>
     </div>
