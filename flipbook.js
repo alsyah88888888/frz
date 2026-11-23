@@ -575,7 +575,8 @@ function setupPageFlipEngine() {
   if (!flipContainer) return;
 
   const isMobile = window.innerWidth <= 768;
-  const availHeight = window.innerHeight - 150; // topbar + dock clearance
+  const availHeight = window.innerHeight - 155; // topbar + dock clearance
+  const availWidth = window.innerWidth - 160; // left + right arrow clearance
 
   let pageWidth, pageHeight;
 
@@ -587,19 +588,17 @@ function setupPageFlipEngine() {
     flipContainer.style.height = pageHeight + "px";
   } else {
     // 2-PAGE SPREAD ON DESKTOP & TABLETS
-    pageHeight = Math.min(Math.max(availHeight, 580), 820);
-    // Classical editorial aspect ratio: width ~0.72 of height
+    pageHeight = Math.min(Math.max(availHeight, 520), 820);
     pageWidth = Math.round(pageHeight * 0.72);
+    // Ensure 2-page spread fits comfortably inside horizontal viewport
+    if (pageWidth * 2 > availWidth) {
+      pageWidth = Math.floor(availWidth / 2);
+      pageHeight = Math.round(pageWidth / 0.72);
+    }
     const spreadWidth = pageWidth * 2;
 
     flipContainer.style.width = spreadWidth + "px";
     flipContainer.style.height = pageHeight + "px";
-  }
-
-  // Destroy existing instance if resizing
-  if (pageFlipInstance) {
-    pageFlipInstance.destroy();
-    pageFlipInstance = null;
   }
 
   pageFlipInstance = new St.PageFlip(flipContainer, {
@@ -644,12 +643,14 @@ function setupPageFlipEngine() {
     if (nextBtn) nextBtn.disabled = curIdx >= totalPagesCount - 1;
   });
 
-  // Window Resize
+  // Safe Window Resize (registered once)
   let resizeTimer = null;
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      setupPageFlipEngine();
+      if (pageFlipInstance) {
+        pageFlipInstance.update();
+      }
     }, 250);
   });
 }
@@ -660,6 +661,12 @@ function setupPageFlipEngine() {
 function updateSpreadDisplay(curIdx) {
   const spreadLabel = document.getElementById("dock-spread-label");
   const slider = document.getElementById("page-scrubber");
+  const stageCenter = document.getElementById("book-stage-center");
+
+  if (stageCenter) {
+    const isClosed = curIdx === 0 || curIdx >= totalPagesCount - 1;
+    stageCenter.classList.toggle("book-closed", isClosed);
+  }
 
   if (slider) {
     slider.max = totalPagesCount - 1;
