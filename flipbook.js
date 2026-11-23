@@ -15,10 +15,14 @@ let isZoomed = false;
 let audioCtx = null;
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Theme check
-  const savedTheme = localStorage.getItem("frz-flipbook-theme") || "dark";
-  if (savedTheme === "light") {
-    document.body.classList.add("theme-light");
+  // Theme check (Light Studio default like Heyzine)
+  const savedTheme = localStorage.getItem("frz-flipbook-theme") || "light";
+  const btnThemeInit = document.getElementById("btn-theme-toggle");
+  if (savedTheme === "dark") {
+    document.body.classList.add("theme-dark");
+    if (btnThemeInit) btnThemeInit.innerHTML = '<i class="fas fa-sun"></i>';
+  } else {
+    if (btnThemeInit) btnThemeInit.innerHTML = '<i class="fas fa-moon"></i>';
   }
 
   // Load components if needed
@@ -168,9 +172,9 @@ function renderFlipbookPages(catMap) {
   pagesHTML += `<div class="catalog-page page-toc-editorial" id="page-toc-slot" data-density="soft"></div>`;
   currentPageIndex++;
 
-  // 4. CATEGORY DIVIDERS & PRODUCT PAGES (4 items per page for generous readability)
+  // 4. CATEGORY DIVIDERS & PRODUCT PAGES (6 items per page - crisp PDF catalog layout)
   const tocData = [];
-  const ITEMS_PER_PAGE = 4;
+  const ITEMS_PER_PAGE = 6;
 
   catalogCategories.forEach((catName, catIdx) => {
     const items = allCatalogProducts.filter((p) => (p.category || "Lainnya").trim() === catName);
@@ -422,21 +426,7 @@ function createProductPageHTML(items, catName, pageIndex, isLeft, subPageNum, to
         </div>
         <div class="card-content-area">
           <div class="card-product-title" title="${escapedName}">${p.name}</div>
-          <div class="card-meta-row">
-            <div class="card-rating-stars">
-              ${starsHTML}
-              <span class="score">${p.rating || 4.7}</span>
-            </div>
-            <span class="card-sales-volume">${p.sales || "1,200"}+ terjual</span>
-          </div>
-          <div class="card-action-row" onclick="event.stopPropagation()">
-            <a href="https://wa.me/6281234567890?text=${waText}" target="_blank" class="btn-inquire-wa">
-              <i class="fab fa-whatsapp"></i> Inquiry WA
-            </a>
-            <button class="btn-card-quickview" onclick="openProductModal(${p.id})">
-              Detail
-            </button>
-          </div>
+          <div class="card-sub-meta">★ ${p.rating || 4.7} &bull; Klik untuk detail</div>
         </div>
       </div>
     `;
@@ -664,8 +654,12 @@ function updateSpreadDisplay(curIdx) {
   const stageCenter = document.getElementById("book-stage-center");
 
   if (stageCenter) {
-    const isClosed = curIdx === 0 || curIdx >= totalPagesCount - 1;
+    const isFrontCover = curIdx === 0;
+    const isBackCover = curIdx >= totalPagesCount - 1;
+    const isClosed = isFrontCover || isBackCover;
     stageCenter.classList.toggle("book-closed", isClosed);
+    stageCenter.classList.toggle("cover-front-centered", isFrontCover);
+    stageCenter.classList.toggle("cover-back-centered", isBackCover);
   }
 
   if (slider) {
@@ -767,14 +761,14 @@ function setupAllEventListeners() {
   const btnFullscreen = document.getElementById("btn-fullscreen");
   if (btnFullscreen) btnFullscreen.onclick = toggleFullscreen;
 
-  // 8. Theme Switcher (Dark Studio / Light Studio)
+  // 8. Theme Switcher (Light Studio / Dark Studio)
   const btnTheme = document.getElementById("btn-theme-toggle");
   if (btnTheme) {
     btnTheme.onclick = function () {
-      document.body.classList.toggle("theme-light");
-      const isLight = document.body.classList.contains("theme-light");
-      localStorage.setItem("frz-flipbook-theme", isLight ? "light" : "dark");
-      this.innerHTML = isLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+      document.body.classList.toggle("theme-dark");
+      const isDark = document.body.classList.contains("theme-dark");
+      localStorage.setItem("frz-flipbook-theme", isDark ? "dark" : "light");
+      this.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     };
   }
 
