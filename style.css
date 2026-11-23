@@ -1773,6 +1773,33 @@ input[type="checkbox"] {
   flex: 1 !important;
 }
 
+/* ===== KATALOG FLIPBOOK BUTTON ===== */
+.btn-flipbook-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 8px 18px !important;
+  background: linear-gradient(135deg, #004a99 0%, #008cff 100%) !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  box-shadow: 0 4px 12px rgba(0, 74, 153, 0.25) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease !important;
+}
+
+.btn-flipbook-link:hover {
+  background: linear-gradient(135deg, #003b7a 0%, #0077db 100%) !important;
+  box-shadow: 0 8px 20px rgba(0, 74, 153, 0.35) !important;
+  transform: translateY(-2px);
+  color: #fff !important;
+}
+
+.btn-flipbook-link:active {
+  transform: translateY(0);
+}
+
 /* ===== CETAK KATALOG BUTTON ===== */
 .btn-print {
   display: inline-flex !important;

@@ -65,6 +65,24 @@
       </div>
     </header>
 
+    <!-- Digital Flipbook Banner Callout -->
+    <div class="container" style="margin-top: 15px; margin-bottom: -10px;">
+      <div style="background: linear-gradient(135deg, #0f172a 0%, #003366 50%, #004a99 100%); border-radius: 14px; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; color: #fff; box-shadow: 0 4px 20px rgba(0, 51, 102, 0.25);">
+        <div style="display: flex; align-items: center; gap: 15px;">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(255, 255, 255, 0.12); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #38bdf8;">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <div>
+            <h4 style="margin: 0; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.3px;">Katalog Digital Flipbook 3D Interaktif</h4>
+            <p style="margin: 3px 0 0 0; font-size: 0.82rem; color: #cbd5e1;">Buka pengalaman membaca katalog layaknya majalah fisik dengan fitur efek balik lembar kertas, daftar isi interaktif, dan inquiry cepat.</p>
+          </div>
+        </div>
+        <a href="flipbook.html" style="background: #38bdf8; color: #0f172a; font-weight: 700; font-size: 0.85rem; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s, background 0.2s; white-space: nowrap;">
+          <span>Buka Flipbook</span> <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
     <main class="products-container">
       <div class="container flex-layout">
         <!-- Filter Drawer -->
@@ -100,10 +118,13 @@
         <section class="product-listing">
           <!-- Filter Toggle Button -->
           <div class="header-actions">
-            <div style="display: flex; gap: 10px;">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
               <button id="filter-toggle" class="btn-filter">
                 <i class="fas fa-sliders-h"></i> Filters & Sort
               </button>
+              <a href="flipbook.html" class="btn-filter btn-flipbook-link" title="Buka Mode Katalog Flipbook Digital">
+                <i class="fas fa-book-open"></i> Katalog Flipbook
+              </a>
               <button id="print-catalog-btn" class="btn-filter btn-print">
                 <span class="btn-print-icon"><i class="fas fa-print"></i></span> Cetak Katalog
               </button>
